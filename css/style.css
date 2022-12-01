@@ -24,6 +24,7 @@
     margin-right: 30px;
 }
 
+
 .loginicon2{
     width: 20px;
     margin-right: 150px;
@@ -32,3 +33,12 @@
 .nav flex-column{
     margin-top: 10px;
 }
+
+#home{
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 1.75s;
+    transition: opacity 1.75s;
+}
+
