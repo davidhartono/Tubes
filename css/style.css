@@ -29,6 +29,9 @@ html {
 .nav-item {
     margin-left: 30px;
 }
+#footer-link{
+    color: #FFF3E4;
+}
 .search-box{
     position: absolute;
     top: 43%;
@@ -70,15 +73,19 @@ html {
     line-height: 30px;
     width: 0px;
 }
-
+.fab {
+    color: #FFF3E4;
+}
 footer{
     color: #FFF3E4;
     background-color: #483434;
 }
-
-.nav-link p-0{
-    color: #FFF3E4;
+.carousel-inner > .item >img{
+    min-height : 300px;
+    max-height : 300px;
+    width : 100%;
 }
+
 #btn-catalog{
     background-color: #483434;
     color: #FFF3E4;
