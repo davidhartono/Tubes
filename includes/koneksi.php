@@ -19,7 +19,6 @@
             die("Koneksi Gagal".$koneksi->connect_error);
         } else 
         
-
         ?>
     </body>
 </html>

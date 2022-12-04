@@ -1,39 +1,7 @@
-#navbar {
-    padding: 1.5%;
+html {
+    margin: 0;
+    padding: 0 ;
 }
-
-#nav-item{
-    margin-right : 2%;
-}
-
-#brand {
-    margin-left: 15%;
-}
-
-#slogan {
-    margin-right: 15%;
-}
-
-.nav-item {
-    margin-left: 30px;
-
-}
-
-.loginicon1{
-    width: 20px;
-    margin-right: 30px;
-}
-
-
-.loginicon2{
-    width: 20px;
-    margin-right: 150px;
-}
-
-.nav flex-column{
-    margin-top: 10px;
-}
-
 #home{
     display: block;
     visibility: hidden;
@@ -41,4 +9,98 @@
     -webkit-transition: opacity 1.75s;
     transition: opacity 1.75s;
 }
+#navbar {
+    padding: 1.5%;
+}
+#brand {
+    margin-left: 15%;
+    color: #483434;
+}
+#home{
+    margin-top: 10%;
+}
+#slogan {
+    margin-right: 15%;
+    color: #483434;
+    margin-top: 20%;
+    font-size: 56px;
+}
+.nav-item {
+    margin-left: 30px;
+}
+#footer-link{
+    color: #FFF3E4;
+}
+.search-box{
+    position: absolute;
+    top: 43%;
+    left: 70%;
+    transform: translate(-100%,-50%);
+    height: 50px;
+    border-radius: 40px;
+    padding: 15px;
+    outline: #483434;
+}
+.search-box:hover > .search-text{
+    width: 200px;
+    padding: 0 6px;
+    background: white;
+    border-radius: 8px;
+    color: #483434;
+}
+.search-box:hover > .search-btn{
+    color: #6B4F4F;
+}
+.search-btn {
+    color: #483434;
+    float: right;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    text-decoration: none;
+}
 
+.search-text{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: #483434;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 30px;
+    width: 0px;
+}
+.fab {
+    color: #FFF3E4;
+}
+footer{
+    color: #FFF3E4;
+    background-color: #483434;
+}
+.carousel-inner > .item >img{
+    min-height : 300px;
+    max-height : 300px;
+    width : 100%;
+}
+
+#btn-catalog{
+    background-color: #483434;
+    color: #FFF3E4;
+    padding: 10px;
+    width: 35%;
+    border-radius: 20px;
+    outline-color: #483434;
+    outline-style: solid;
+    transition: 0.45s;
+}
+#btn-catalog:hover{
+    background-color: white;
+    color: #483434;
+
+}
