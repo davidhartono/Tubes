@@ -1,15 +1,10 @@
-<<<<<<<< HEAD:admin/landingpage.php
-<!-- <?php
-require ("../includes/koneksi.php");
-========
 <?php
 require ("../../includes/koneksi.php");
->>>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d:login/admin/landingpage.php
 if (empty($_SESSION['username'])){
     header("Location : error.php");
 
 }
-?> -->
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
