@@ -69,7 +69,11 @@ if (isset($_POST['btnsignup'])) {
               }
 
               if ($user_login == $user && $user_pass == $pass) {
+<<<<<<< HEAD
                 header("Location: ../admin/landingpage.php");
+=======
+                header("Location: ./admin/landingpage.php");
+>>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d
                 $_SESSION['username'] = $user;
                 $_SESSION['email'] = $email;
               } else {
