@@ -90,7 +90,7 @@
             <div class="home-text py-5">
               <h1 class="fw-bold" id="slogan">Freshly brewed, <br>feel the aroma.</h1>
               <h3 class="mb-4" style="color: #6B4F4F ;"><br>At Coftea, we're dedicated to goodness in every sip.</h3>
-              <a href="catalogue.html" class="btn mt-4 px-3" id="btn-catalog">Catalog</a>
+              <a href="catalog.html" class="btn mt-4 px-3" id="btn-catalog">Catalog</a>
             </div>
           </div>
 
