@@ -27,7 +27,7 @@ if (isset($_POST['btnsignup'])) {
   <title>COFTEA</title>
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
-<link rel="stylesheet" href="./css/register.css">
+<link rel="stylesheet" href="../css/register.css">
 
 </head>
 
@@ -76,7 +76,7 @@ if (isset($_POST['btnsignup'])) {
                 $_SESSION['nama'] = $nama;
                 $_SESSION['email'] = $email;
               } else {
-                echo "<br/><font color = red><b> User Tidak Ditemukan. </b></font>";
+                echo "<p style=\"text-align: center\"></br><font color = red><b> User Tidak Ditemukan </b></font></p>";
               }
             }
             ?>
@@ -115,7 +115,7 @@ if (isset($_POST['btnsignup'])) {
     </div>
   </section>
   <!-- partial -->
-  <script src="./js/register.js"></script>
+  <script src="../js/register.js"></script>
   <script>
     if (window.history.replaceState) {
       window.history.replaceState(null, null, window.location.href);
