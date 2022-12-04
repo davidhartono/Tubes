@@ -1,6 +1,10 @@
-html {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600&display=swap');
+
+* {
     margin: 0;
-    padding: 0;
+    padding: 0 ;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #home {
@@ -33,6 +37,30 @@ html {
 
 .nav-item {
     margin-left: 30px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#navbar-item{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#navbar-item::before{
+    content:'' ;
+    position: absolute;
+    bottom: -2px;
+    width: 80%;
+    height: 2px;
+    background: #483434;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: right;
+}
+#navbar-item:hover::before{
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 #footer-link {
@@ -49,9 +77,8 @@ html {
     padding: 15px;
     outline: #483434;
 }
-
-.search-box:hover>.search-text {
-    width: 200px;
+.search-box:hover > .search-text{
+    width: 160px;
     padding: 0 6px;
     background: white;
     border-radius: 8px;
@@ -74,6 +101,12 @@ html {
     transition: 0.4s;
     text-decoration: none;
 }
+#login{
+    position: absolute;
+    margin-left: 15px;
+    font-weight: 400;
+    top: 36%;
+}
 
 .search-text {
     border: none;
@@ -87,22 +120,21 @@ html {
     line-height: 30px;
     width: 0px;
 }
-
 .fab {
     color: #FFF3E4;
 }
-
 footer {
     color: #FFF3E4;
     background-color: #483434;
 }
-
-.carousel-inner>.item>img {
-    min-height: 300px;
-    max-height: 300px;
-    width: 100%;
+#footer-link{
+    color: #FFF3E4;
 }
-
+.carousel-inner > .item >img{
+    min-height : 300px;
+    max-height : 300px;
+    width : 100%;
+}
 #btn-catalog {
     background-color: #483434;
     color: #FFF3E4;
@@ -119,30 +151,28 @@ footer {
     color: #483434;
 
 }
-
 .tnc_heading {
-    font-family: 'Syne', sans-serif;
     margin-left: 200px;
     margin-top: 50px;
 }
 
 .tnc {
-    font-family: 'Syne', sans-serif;
     margin-left: 200px;
     margin-right: 200px;
     text-align: justify;
 }
 
 .tnc_body {
+   background-color: rgb(238, 214, 196);
+   font-size: 16px;
     background-color: rgb(238, 214, 196);
     font-size: 16px;
-
 }
 
 
 .footertnc {
+    background-color: rgb(238, 214, 196) !important ;
     color: #FFF3E4;
     background-color: #483434;
-    font-family: 'Syne', sans-serif;
 
 }
