@@ -6,19 +6,14 @@ if (empty($_SESSION['username'])){
 }
 ?> 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>COFTEA - Coffee and Tea</title>
-<<<<<<<< HEAD:admin/landingpage.php
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/font-awesome.css">
-========
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="../../css/font-awesome.css">
->>>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d:login/admin/landingpage.php
 </head>
 <body>
     <!-- NAVIGATION BAR -->
@@ -29,12 +24,7 @@ if (empty($_SESSION['username'])){
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-<<<<<<<< HEAD:admin/landingpage.php
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-========
-            <a class="navbar-brand" id="brand" href="landingpage.php">COFTEA</a>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
->>>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d:login/admin/landingpage.php
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
               <li class="nav-item">
                 <a class="nav-link" id="navbar-item" style="color: #483434;"  href="../catalog.html">Catalog</a>
@@ -70,32 +60,7 @@ if (empty($_SESSION['username'])){
                             ?>
                         </span>
                     </a>
-<<<<<<<< HEAD:admin/landingpage.php
               </li>
-========
-                    <!-- Dropdown - User Information -->
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                            aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Profile
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Settings
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Activity Log
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Logout
-                        </a>
-                    </div>
-                </li>
->>>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d:login/admin/landingpage.php
             </ul>
           </div>
         </div>
@@ -122,15 +87,6 @@ if (empty($_SESSION['username'])){
               <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-<<<<<<<< HEAD:admin/landingpage.php
-                    <img src="../media/cold coffees/cold brew latte.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../media/hot cofees/caffe americano.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../media/cold coffees/iced americano with lemon juice.png" class="d-block w-100" alt="...">
-========
                     <img src="../../media/cold coffees/cold brew latte.png" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
@@ -138,8 +94,8 @@ if (empty($_SESSION['username'])){
                   </div>
                   <div class="carousel-item">
                     <img src="../../media/cold coffees/iced americano with lemon juice.png" class="d-block w-100" alt="...">
->>>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d:login/admin/landingpage.php
                   </div>
+                    
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -164,11 +120,9 @@ if (empty($_SESSION['username'])){
         <div class="row w-100">
           <div class="col-3">
             <ul class="nav flex-column">
-<<<<<<<< HEAD:admin/landingpage.php
-              <li class="nav-item fs-6 mb-3"><a href="../terms&condition.html" class="nav-link p-0" id="footer-link">Terms & Conditions</a></li>
-========
+
               <li class="nav-item fs-6 mb-3"><a href="../../terms&condition.html" class="nav-link p-0" id="footer-link">Terms & Conditions</a></li>
->>>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d:login/admin/landingpage.php
+
               <li class="nav-item fs-6 mb-3"><a href="#" class="nav-link p-0" id="footer-link">Privacy Policy</a></li>
               <li class="nav-item fs-6 mb-3"><a href="#" class="nav-link p-0" id="footer-link">Shipping Policy</a></li>
               <li class="nav-item fs-6 mb-3"><a href="#" class="nav-link p-0" id="footer-link">Refund Policy</a></li>
@@ -214,11 +168,8 @@ if (empty($_SESSION['username'])){
       </footer>
     
     <!-- FOOTER END -->
-<<<<<<<< HEAD:admin/landingpage.php
     <script src="../js/bootstrap.js"></script>
-========
     <script src="../../js/bootstrap.bundle.min.js"></script>
->>>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d:login/admin/landingpage.php
     <script>
       var element = document.getElementById("home");
 
