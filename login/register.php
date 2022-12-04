@@ -37,8 +37,8 @@ if (isset($_POST['btnsignup'])) {
     <h1 class="section-title">COFTEA</h1>
     <div class="forms">
       <div class="form-wrapper is-active">
-        <button type="button" class="switcher switcher-signup">
-          Sign Up
+        <button type="button" class="switcher switcher-login">
+          Login
           <span class="underline"></span>
         </button>
         <form class="form form-login" method="POST">
