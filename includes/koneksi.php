@@ -11,7 +11,7 @@
         $host = 'localhost';
         $user = 'root';
         $pass = '';
-        $database = 'david';
+        $database = 'coftea';
 
         $koneksi = mysqli_connect($host,$user,$pass,$database);
 
