@@ -5,10 +5,9 @@ require('../includes/koneksi.php');
 if (isset($_POST['btnsignup'])) {
   $user = $_POST['username'];
   $pass = $_POST['password']; // SHA1
-  $nama = $_POST['nama'];
   $email = $_POST['email'];
 
-  $sql = "INSERT INTO akun (username,password,nama,email) VALUES ('$user','$pass','$nama','$email')";
+  $sql = "INSERT INTO customer (username,password,email) VALUES ('$user','$pass','$email')";
 
   if ($koneksi->query($sql) === TRUE) {
     echo "Registrasi Akun Anda Berhasil";
@@ -46,7 +45,7 @@ if (isset($_POST['btnsignup'])) {
             <legend>Please, enter your email and password for login.</legend>
             <div class="input-block">
               <label for="login-username">Username</label>
-              <input id="login-username" type="eusername" name="username" required>
+              <input id="login-username" type="username" name="username" required>
             </div>
             <div class="input-block">
               <label for="login-password">Password</label>
@@ -57,7 +56,7 @@ if (isset($_POST['btnsignup'])) {
               $user_login = $_POST['username'];
               $user_pass = $_POST['password'];
 
-              $sql = "SELECT * FROM akun WHERE username = '$user_login' and password = '$user_pass'";
+              $sql = "SELECT * FROM customer WHERE username = '$user_login' and password = '$user_pass'";
               $query = mysqli_query($koneksi, $sql);
 
               if (!$query) {
@@ -65,15 +64,13 @@ if (isset($_POST['btnsignup'])) {
               }
               while ($row = mysqli_fetch_array($query)) {
                 $user = $row['username'];
-                $pass = $row['password'];
-                $nama = $row['nama'];
                 $email = $row['email'];
+                $pass = $row['password'];
               }
 
               if ($user_login == $user && $user_pass == $pass) {
-                header("Location: ./admin/landingpage.php");
+                header("Location: ../admin/landingpage.php");
                 $_SESSION['username'] = $user;
-                $_SESSION['nama'] = $nama;
                 $_SESSION['email'] = $email;
               } else {
                 echo "<p style=\"text-align: center\"></br><font color = red><b> User Tidak Ditemukan </b></font></p>";
@@ -92,10 +89,6 @@ if (isset($_POST['btnsignup'])) {
         <form class="form form-signup" method="POST">
           <fieldset>
             <legend>Please, enter your email, password and password confirmation for sign up.</legend>
-            <div class="input-block">
-              <label for="signup-nama">Nama</label>
-              <input id="signup-nama" type="text" name="nama" required>
-            </div>
             <div class="input-block">
               <label for="signup-username">Username</label>
               <input id="signup-username" type="text" name="username" required>
