@@ -92,3 +92,30 @@ footer{
     color: #483434;
 
 }
+
+.tnc_heading{
+    font-family: 'Syne', sans-serif;
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+.tnc {
+    font-family: 'Syne', sans-serif;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: justify;
+}
+
+.tnc_body {
+   background-color: rgb(238, 214, 196);
+   font-size: 16px;
+
+}
+
+
+.footertnc {
+    background-color: rgb(238, 214, 196) !important ;
+    color: black;
+    font-family: 'Syne', sans-serif;
+    
+}
