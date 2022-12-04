@@ -2,13 +2,10 @@
 
 * {
     margin: 0;
-<<<<<<< HEAD
     padding: 0 ;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-=======
     padding: 0;
->>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d
 }
 
 #home {
@@ -45,7 +42,6 @@
     align-items: center;
     text-align: center;
 }
-<<<<<<< HEAD
 #navbar-item{
     position: relative;
     justify-content: center;
@@ -66,11 +62,9 @@
 #navbar-item:hover::before{
     transform: scaleX(1);
     transform-origin: left;
-=======
 
 #footer-link {
     color: #FFF3E4;
->>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d
 }
 
 .search-box {
@@ -83,14 +77,8 @@
     padding: 15px;
     outline: #483434;
 }
-<<<<<<< HEAD
 .search-box:hover > .search-text{
     width: 160px;
-=======
-
-.search-box:hover>.search-text {
-    width: 200px;
->>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d
     padding: 0 6px;
     background: white;
     border-radius: 8px;
@@ -113,16 +101,12 @@
     transition: 0.4s;
     text-decoration: none;
 }
-<<<<<<< HEAD
 #login{
     margin-left: 10px;
     font-weight: 400;
 }
-.search-text{
-=======
 
 .search-text {
->>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d
     border: none;
     background: none;
     outline: none;
@@ -134,16 +118,13 @@
     line-height: 30px;
     width: 0px;
 }
-
 .fab {
     color: #FFF3E4;
 }
-
 footer {
     color: #FFF3E4;
     background-color: #483434;
 }
-<<<<<<< HEAD
 #footer-link{
     color: #FFF3E4;
 }
@@ -151,13 +132,12 @@ footer {
     min-height : 300px;
     max-height : 300px;
     width : 100%;
-=======
 
 .carousel-inner>.item>img {
     min-height: 300px;
     max-height: 300px;
     width: 100%;
->>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d
+
 }
 
 #btn-catalog {
@@ -176,47 +156,28 @@ footer {
     color: #483434;
 
 }
-<<<<<<< HEAD
-.tnc_heading{
-=======
-
 .tnc_heading {
->>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d
-    font-family: 'Syne', sans-serif;
     margin-left: 200px;
     margin-top: 50px;
 }
 
 .tnc {
-    font-family: 'Syne', sans-serif;
     margin-left: 200px;
     margin-right: 200px;
     text-align: justify;
 }
 
 .tnc_body {
-<<<<<<< HEAD
    background-color: rgb(238, 214, 196);
    font-size: 16px;
-=======
     background-color: rgb(238, 214, 196);
     font-size: 16px;
->>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d
-
 }
 
 
 .footertnc {
-<<<<<<< HEAD
     background-color: rgb(238, 214, 196) !important ;
-    color: black;
-    font-family: 'Syne', sans-serif;
-    
-}
-=======
     color: #FFF3E4;
     background-color: #483434;
-    font-family: 'Syne', sans-serif;
 
 }
->>>>>>> 63d8e78a2ae7210599261defc31e9392d4b0f85d
