@@ -1,6 +1,6 @@
 <?php
 require ("../../includes/koneksi.php");
-if (empty($_SESSION['nama'])){
+if (empty($_SESSION['username'])){
     header("Location : error.php");
 
 }
@@ -58,7 +58,7 @@ if (empty($_SESSION['nama'])){
                         <i class="fa fa-user"></i>
                         <span class="mr-2 d-none d-lg-inline small" style="color: #483434;">
                             <?php
-                                echo $_SESSION['nama'];
+                                echo $_SESSION['username'];
                             ?>
                         </span>
                     </a>
