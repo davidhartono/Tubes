@@ -1,18 +1,18 @@
-<?php
-require ("./includes/koneksi.php");
-if (empty($_SESSION['nama'])){
+<!-- <?php
+require ("../includes/koneksi.php");
+if (empty($_SESSION['username'])){
     header("Location : error.php");
 
 }
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>COFTEA - Coffee and Tea</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/font-awesome.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/font-awesome.css">
 </head>
 <body>
     <!-- NAVIGATION BAR -->
@@ -21,11 +21,11 @@ if (empty($_SESSION['nama'])){
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" id="brand" href="index.html">COFTEA</a>
+            <a class="navbar-brand" id="brand" href="landingpage.php">COFTEA</a>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
               <li class="nav-item">
-                <a class="nav-link active" style="color: #483434;"  href="#catalog">Catalog</a>
+                <a class="nav-link active" style="color: #483434;"  href="../catalog.html">Catalog</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" style="color: #483434;" href="#subscription">Bundle</a>
@@ -58,7 +58,7 @@ if (empty($_SESSION['nama'])){
                         <i class="fa fa-user"></i>
                         <span class="mr-2 d-none d-lg-inline small" style="color: #483434;">
                             <?php
-                                echo $_SESSION['nama'];
+                                echo $_SESSION['username'];
                             ?>
                         </span>
                     </a>
@@ -101,7 +101,7 @@ if (empty($_SESSION['nama'])){
               <div class="home-text py-5">
                 <h1 class="fw-bold" id="slogan">Freshly brewed, <br>feel the aroma.</h1>
                 <h3 class="mb-4" style="color: #6B4F4F ;"><br>At Coftea, we're dedicated to goodness in every sip.</h3>
-                <a href="#projects" class="btn mt-4 px-3" id="btn-catalog">Catalog</a>
+                <a href="../catalog.html" class="btn mt-4 px-3" id="btn-catalog">Catalog</a>
               </div>
             </div>
 
@@ -109,13 +109,13 @@ if (empty($_SESSION['nama'])){
               <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="./media/cold coffees/cold brew latte.png" class="d-block w-100" alt="...">
+                    <img src="../media/cold coffees/cold brew latte.png" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="./media/hot cofees/caffe americano.png" class="d-block w-100" alt="...">
+                    <img src="../media/hot cofees/caffe americano.png" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="./media/cold coffees/iced americano with lemon juice.png" class="d-block w-100" alt="...">
+                    <img src="../media/cold coffees/iced americano with lemon juice.png" class="d-block w-100" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -141,7 +141,7 @@ if (empty($_SESSION['nama'])){
         <div class="row w-100">
           <div class="col-3">
             <ul class="nav flex-column">
-              <li class="nav-item fs-6 mb-3"><a href="#" class="nav-link p-0" id="footer-link">Terms & Conditions</a></li>
+              <li class="nav-item fs-6 mb-3"><a href="../terms&condition.html" class="nav-link p-0" id="footer-link">Terms & Conditions</a></li>
               <li class="nav-item fs-6 mb-3"><a href="#" class="nav-link p-0" id="footer-link">Privacy Policy</a></li>
               <li class="nav-item fs-6 mb-3"><a href="#" class="nav-link p-0" id="footer-link">Shipping Policy</a></li>
               <li class="nav-item fs-6 mb-3"><a href="#" class="nav-link p-0" id="footer-link">Refund Policy</a></li>
@@ -187,7 +187,7 @@ if (empty($_SESSION['nama'])){
       </footer>
     
     <!-- FOOTER END -->
-    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
       var element = document.getElementById("home");
 
