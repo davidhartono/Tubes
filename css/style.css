@@ -5,7 +5,6 @@
     padding: 0 ;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    padding: 0;
 }
 
 #home {
@@ -62,6 +61,7 @@
 #navbar-item:hover::before{
     transform: scaleX(1);
     transform-origin: left;
+}
 
 #footer-link {
     color: #FFF3E4;
@@ -102,8 +102,10 @@
     text-decoration: none;
 }
 #login{
-    margin-left: 10px;
+    position: absolute;
+    margin-left: 15px;
     font-weight: 400;
+    top: 36%;
 }
 
 .search-text {
@@ -132,14 +134,7 @@ footer {
     min-height : 300px;
     max-height : 300px;
     width : 100%;
-
-.carousel-inner>.item>img {
-    min-height: 300px;
-    max-height: 300px;
-    width: 100%;
-
 }
-
 #btn-catalog {
     background-color: #483434;
     color: #FFF3E4;
