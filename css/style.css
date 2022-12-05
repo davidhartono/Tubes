@@ -2,7 +2,7 @@
 
 * {
     margin: 0;
-    padding: 0 ;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
@@ -41,14 +41,16 @@
     align-items: center;
     text-align: center;
 }
-#navbar-item{
+
+#navbar-item {
     position: relative;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-#navbar-item::before{
-    content:'' ;
+
+#navbar-item::before {
+    content: '';
     position: absolute;
     bottom: -2px;
     width: 80%;
@@ -58,7 +60,8 @@
     transition: transform 0.5s ease-in-out;
     transform-origin: right;
 }
-#navbar-item:hover::before{
+
+#navbar-item:hover::before {
     transform: scaleX(1);
     transform-origin: left;
 }
@@ -77,7 +80,8 @@
     padding: 15px;
     outline: #483434;
 }
-.search-box:hover > .search-text{
+
+.search-box:hover>.search-text {
     width: 160px;
     padding: 0 6px;
     background: white;
@@ -101,7 +105,8 @@
     transition: 0.4s;
     text-decoration: none;
 }
-#login{
+
+#login {
     position: absolute;
     margin-left: 15px;
     font-weight: 400;
@@ -120,21 +125,26 @@
     line-height: 30px;
     width: 0px;
 }
+
 .fab {
     color: #FFF3E4;
 }
+
 footer {
     color: #FFF3E4;
     background-color: #483434;
 }
-#footer-link{
+
+#footer-link {
     color: #FFF3E4;
 }
-.carousel-inner > .item >img{
-    min-height : 300px;
-    max-height : 300px;
-    width : 100%;
+
+.carousel-inner>.item>img {
+    min-height: 300px;
+    max-height: 300px;
+    width: 100%;
 }
+
 #btn-catalog {
     background-color: #483434;
     color: #FFF3E4;
@@ -151,6 +161,7 @@ footer {
     color: #483434;
 
 }
+
 .tnc_heading {
     margin-left: 200px;
     margin-top: 50px;
@@ -163,15 +174,15 @@ footer {
 }
 
 .tnc_body {
-   background-color: rgb(238, 214, 196);
-   font-size: 16px;
+    background-color: rgb(238, 214, 196);
+    font-size: 16px;
     background-color: rgb(238, 214, 196);
     font-size: 16px;
 }
 
 
 .footertnc {
-    background-color: rgb(238, 214, 196) !important ;
+    background-color: rgb(238, 214, 196) !important;
     color: #FFF3E4;
     background-color: #483434;
 
