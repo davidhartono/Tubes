@@ -1,43 +1,56 @@
-html {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600&display=swap');
+
+* {
     margin: 0;
-    padding: 0 ;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
-#home{
+
+#home {
     display: block;
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 1.75s;
     transition: opacity 1.75s;
 }
+
 #navbar {
     padding: 1.5%;
 }
+
 #brand {
     margin-left: 15%;
     color: #483434;
 }
-#home{
+
+#home {
     margin-top: 10%;
 }
+
 #slogan {
     margin-right: 15%;
     color: #483434;
     margin-top: 20%;
     font-size: 56px;
 }
+
 .nav-item {
     margin-left: 30px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-#navbar-item{
+
+#navbar-item {
     position: relative;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-#navbar-item::before{
-    content:'' ;
+
+#navbar-item::before {
+    content: '';
     position: absolute;
     bottom: -2px;
     width: 80%;
@@ -47,7 +60,8 @@ html {
     transition: transform 0.5s ease-in-out;
     transform-origin: right;
 }
-#navbar-item:hover::before{
+
+#navbar-item:hover::before {
     transform: scaleX(1);
     transform-origin: left;
 }
@@ -55,26 +69,30 @@ html {
 #footer-link {
     color: #FFF3E4;
 }
-.search-box{
+
+.search-box {
     position: absolute;
     top: 43%;
     left: 70%;
-    transform: translate(-100%,-50%);
+    transform: translate(-100%, -50%);
     height: 50px;
     border-radius: 40px;
     padding: 15px;
     outline: #483434;
 }
-.search-box:hover > .search-text{
-    width: 200px;
+
+.search-box:hover>.search-text {
+    width: 160px;
     padding: 0 6px;
     background: white;
     border-radius: 8px;
     color: #483434;
 }
-.search-box:hover > .search-btn{
+
+.search-box:hover>.search-btn {
     color: #6B4F4F;
 }
+
 .search-btn {
     color: #483434;
     float: right;
@@ -87,14 +105,15 @@ html {
     transition: 0.4s;
     text-decoration: none;
 }
-#login{
+
+#login {
     position: absolute;
     margin-left: 15px;
     font-weight: 400;
     top: 36%;
 }
 
-.search-text{
+.search-text {
     border: none;
     background: none;
     outline: none;
@@ -106,18 +125,26 @@ html {
     line-height: 30px;
     width: 0px;
 }
+
 .fab {
     color: #FFF3E4;
 }
-footer{
+
+footer {
     color: #FFF3E4;
     background-color: #483434;
 }
-.carousel-inner > .item >img{
-    min-height : 300px;
-    max-height : 300px;
-    width : 100%;
+
+#footer-link {
+    color: #FFF3E4;
 }
+
+.carousel-inner>.item>img {
+    min-height: 300px;
+    max-height: 300px;
+    width: 100%;
+}
+
 #btn-catalog {
     background-color: #483434;
     color: #FFF3E4;
@@ -128,34 +155,35 @@ footer{
     outline-style: solid;
     transition: 0.45s;
 }
-#btn-catalog:hover{
+
+#btn-catalog:hover {
     background-color: white;
     color: #483434;
 
 }
-.tnc_heading{
-    font-family: 'Syne', sans-serif;
+
+.tnc_heading {
     margin-left: 200px;
     margin-top: 50px;
 }
 
 .tnc {
-    font-family: 'Syne', sans-serif;
     margin-left: 200px;
     margin-right: 200px;
     text-align: justify;
 }
 
 .tnc_body {
-   background-color: rgb(238, 214, 196);
-   font-size: 16px;
-
+    background-color: rgb(238, 214, 196);
+    font-size: 16px;
+    background-color: rgb(238, 214, 196);
+    font-size: 16px;
 }
 
 
 .footertnc {
-    background-color: rgb(238, 214, 196) !important ;
-    color: black;
-    font-family: 'Syne', sans-serif;
-    
+    background-color: rgb(238, 214, 196) !important;
+    color: #FFF3E4;
+    background-color: #483434;
+
 }
