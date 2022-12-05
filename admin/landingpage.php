@@ -20,7 +20,7 @@ if (empty($_SESSION['username'])) {
   <<div class="container">
     <nav class="navbar navbar-expand-lg shadow-sm fixed-top" style="background-color: #FFF3E4;" id="navbar">
       <div class="container-fluid">
-        <a class="navbar-brand" id="brand" href="../index.html">COFTEA</a>
+        <a class="navbar-brand" id="brand" href="landingpage.php">COFTEA</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
