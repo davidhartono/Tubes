@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,31 +26,46 @@
   </head>
   <body class="tnc_body">
     <!-- NAVIGATION BAR -->
-    <nav class="navbar navbar-expand-lg shadow-sm" style="background-color: #fff3e4" id="navbar">
+    <nav class="navbar navbar-expand-lg shadow-sm header_menu_1 pt-30 pb-30 mt-30" style="background-color: #fff3e4" id="navbar">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" id="brand" href="index.html">COFTEA</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" id="brand" href="index.php">COFTEA</a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" style="color: #483434" href="../catalog.html">Catalog</a>
+              <a class="nav-link" id="navbar-item" style="color: #483434" href="catalog.html">Catalog</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" style="color: #483434" href="#subscription">Bundle</a>
+              <a class="nav-link" id="navbar-item" style="color: #483434" href="#subscription">Bundle</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" style="color: #483434" href="#about">About Us</a>
+              <a class="nav-link" id="navbar-item" style="color: #483434" href="#about">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" style="color: #483434" href="#contact">Contact</a>
+              <a class="nav-link" id="navbar-item" style="color: #483434" href="#contact">Contact</a>
             </li>
           </ul>
         </div>
-        <div class="search-box">
-          <input class="search-text" type="text" name="" placeholder="Search" />
-          <a class="search-btn" href=""><i class="fas fa-search"></i></a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <div class="search-box my-lg-0">
+                <input class="search-text mr-sm-2" type="text" name="" placeholder="Search" />
+                <a class="search-btn" href=""><i class="fas fa-search"></i></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" style="color: #483434" href="#cart"><i class="fa fa-shopping-cart"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: #483434" href="./login/register.php">
+                <i class="fa fa-user"></i>
+                <span class="fs-6 mr-2 d-none d-lg-inline small" id="login" style="color: #483434">Log In </span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
