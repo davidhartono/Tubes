@@ -1,89 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/font-awesome.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/font-awesome.css" />
     <title>Catalogue</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- NAVIGATION BAR -->
-    <nav class="navbar navbar-expand-lg shadow-sm header_menu_1 pt-30 pb-30 mt-30 fixed-top" style="background-color: #FFF3E4;" id="navbar">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg shadow-sm fixed-top" style="background-color: #FFF3E4;" id="navbar">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" id="brand" href="index.html">COFTEA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" id="brand" href="index.html">COFTEA</a>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
               <li class="nav-item">
-                <a class="nav-link active" style="color: #483434;"  href="catalog.html">Catalog</a>
+                <a class="nav-link" id="navbar-item" style="color: #483434;"  href="catalogue.html">Catalog</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" style="color: #483434;" href="#subscription">Bundle</a>
+                <a class="nav-link" id="navbar-item" style="color: #483434;" href="#subscription">Bundle</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" style="color: #483434;" href="#about">About Us</a>
+                <a class="nav-link" id="navbar-item" style="color: #483434;" href="#about">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" style="color: #483434;" href="#contact">Contact</a>
+                <a class="nav-link" id="navbar-item" style="color: #483434;" href="#contact">Contact</a>
               </li>
             </ul>
           </div>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
               <li class="nav-item">
-                <div class="search-box">
-                      <input class="search-text" type="text" name="" placeholder="Search">
+                <div class="search-box my-lg-0">
+                      <input class="search-text mr-sm-2 " type="text" name="" placeholder="Search">
                       <a class="search-btn" href=""><i class="fas fa-search "></i></a>
                 </div>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link active" style="color: #483434;" href="register.html"><i class="fa fa-user"></i> Login</a>
-              </li> -->
               <li class="nav-item">
-                <a class="nav-link active" style="color: #483434;" href="#cart"><i class="fa fa-shopping-cart"></i></a>
+                <a class="nav-link" style="color: #483434;" href="#cart"><i class="fa fa-shopping-cart"></i></a>
               </li>
-              <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="register.php" style="color: #483434;" id="userDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user"></i>
-                        <span class="mr-2 d-none d-lg-inline small" style="color: #483434;">
-                        </span>
-                    </a>
-                    <!-- Dropdown - User Information -->
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                            aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Profile
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Settings
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Activity Log
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Logout
-                        </a>
-                    </div>
-                </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: #483434;" href="./login/register.php" >
+                  <i class="fa fa-user"></i>
+                  <span class="fs-6 mr-2 d-none d-lg-inline small" id="login" style="color: #483434;">Log In
+                  </span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
+    </div>
     <!-- NAVIGATION BAR END -->
-
-
-
+    
     <!-- FOOTER -->
 
     <footer class="py-4">
