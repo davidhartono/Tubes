@@ -33,7 +33,7 @@ if (empty($_SESSION['username'])) {
             </header>
 
             <div class="page-heading">
-                <h3>Welcome</h3>
+                <h3 class="text-uppercase">Welcome <?= $_SESSION['username'] ?></h3>
             </div>
             <div class="page-content">
                 <section class="row">
