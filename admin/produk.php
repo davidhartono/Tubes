@@ -59,6 +59,7 @@ if (empty($_SESSION['username'])) {
                                                             <th>Foto</th>
                                                             <th>Nama</th>
                                                             <th>Harga</th>
+                                                            <th>Kategori</th>
                                                             <th class="text-center">Action</th>
                                                         </tr>
                                                     </thead>
@@ -80,6 +81,7 @@ if (empty($_SESSION['username'])) {
                                                                     <td><img src="./upload/<?= $data['foto'] ?>" width="100"></td>
                                                                     <td><?= $data['nama'] ?></td>
                                                                     <td><?= $data['harga'] ?></td>
+                                                                    <td><?= $data['kategori'] ?></td>
                                                                     <td class="text-center">
                                                                         <a href="produk-detail.php?p=<?= $data['id']; ?>" class="btn btn-info"><i class="fas fa-search"></i>&nbsp;Detail</a> |
                                                                         <a href="update-produk.php?p=<?= $data['id']; ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Update</a> |

@@ -65,6 +65,16 @@ if (empty($_SESSION['username'])) {
                                                 <input type="number" name="harga" id="harga" class="form-control" required>
                                             </div>
                                             <div class="mb-3">
+                                                <label for="kategori" class="form-label">Kategori</label>
+                                                <select name="kategori" id="kategori" class="form-control" required>
+                                                    <option value="">Pilih Satu</option>
+                                                    <option value="Cold Coffee">Cold Coffee</option>
+                                                    <option value="Hot Coffee">Hot Coffee</option>
+                                                    <option value="Cold Tea">Cold Tea</option>
+                                                    <option value="Hot Tea">Hot Tea</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="foto" class="form-label">Foto</label>
                                                 <input type="file" name="foto" id="foto" class="form-control">
                                             </div>
@@ -82,6 +92,7 @@ if (empty($_SESSION['username'])) {
                                             $nama = htmlspecialchars($_POST['nama']);
                                             $harga = htmlspecialchars($_POST['harga']);
                                             $detail = htmlspecialchars($_POST['detail']);
+                                            $kategori = htmlspecialchars($_POST['kategori']);
 
                                             $target_dir = "./upload/";
                                             $random_name = generateRandomString(20);
@@ -91,10 +102,10 @@ if (empty($_SESSION['username'])) {
                                             $image_size = $_FILES["foto"]["size"];
                                             $new_name = $nama_file;
 
-                                            if ($nama == '' || $harga == '') {
+                                            if ($nama == '' || $harga == '' || $kategori == '') {
                                         ?>
                                                 <div class="alert alert-warning mt-3" role="alert">
-                                                    Nama dan Harga Wajib Diisi
+                                                    Nama, Harga dan Kategori Wajib Diisi
                                                 </div>
                                                 <?php
                                             } else {
@@ -118,8 +129,8 @@ if (empty($_SESSION['username'])) {
                                                     }
                                                 }
                                                 // Query untuk product
-                                                $queryTambah = mysqli_query($koneksi, "INSERT INTO produk (nama, harga, foto, detail) VALUES
-                        ('$nama', '$harga', '$new_name', '$detail')");
+                                                $queryTambah = mysqli_query($koneksi, "INSERT INTO produk (nama, harga, kategori, foto, detail) VALUES
+                        ('$nama', '$harga', '$kategori', '$new_name', '$detail')");
                                                 if ($queryTambah) {
                                                     ?>
                                                     <div class="alert alert-primary mt-3" role="alert">

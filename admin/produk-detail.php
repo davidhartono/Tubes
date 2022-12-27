@@ -68,6 +68,9 @@ if (empty($_SESSION['username'])) {
                                                     <p class="fs-3" style="color: blue;">
                                                         Rp <?= $data['harga'] ?>
                                                     </p>
+                                                    <p class="fs-6">
+                                                        Kategori : <strong><?= $data['kategori'] ?></strong>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
