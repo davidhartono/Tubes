@@ -10,15 +10,15 @@
 
 <body>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
- Swal.fire({
-  icon: 'error',
-  title: 'Belum Login',
-  text: 'Anda harus Login terlebih dahulu',
-}).then(function() {
-				window.location = "../login/login.php";
-			})
-</script>
+    <script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Belum Login',
+        text: 'Anda harus Login terlebih dahulu'
+    }).then(function() {
+        window.location = "../login/login.php";
+    })
+    </script>
 </body>
 
 </html>
