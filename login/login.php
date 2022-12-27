@@ -1,6 +1,6 @@
 <?php
 
-require('includes/koneksi.php');
+require('../includes/koneksi.php');
 
 if (isset($_POST['Signup'])) {
   $user = $_POST['username'];
@@ -25,7 +25,7 @@ if (isset($_POST['Signup'])) {
   <meta charset="UTF-8">
   <title>COFTEA</title>
 </head>
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="../css/login.css">
 
 </head>
 
@@ -68,7 +68,7 @@ if (isset($_POST['Signup'])) {
               }
 
               if ($user_login == $user && $user_pass == $pass) {
-                header("Location: index.php");
+                header("Location: ../admin/index.php");
                 $_SESSION['username'] = $user;
                 $_SESSION['email'] = $email;
               } else {
