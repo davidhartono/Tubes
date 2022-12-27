@@ -1,3 +1,11 @@
+<?php
+require("../includes/koneksi.php");
+if (empty($_SESSION['username'])) {
+    header("Location: error.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +23,9 @@
 
 <body>
     <div id="app">
-        <?php include("./includes/sidebar.php"); ?>
+        <?php include("../includes/sidebar.php"); ?>
         <div id="main">
-            <?php include ("./includes/tombollogout.php") ?>
+            <?php include ("../includes/tombollogout.php") ?>
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3"></i>

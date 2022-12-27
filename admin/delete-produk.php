@@ -1,9 +1,12 @@
 <?php
-require "./includes/koneksi.php";
+require "../includes/koneksi.php";
 
 $query = mysqli_query($koneksi, "SELECT * FROM produk");
 $jumlahProduk = mysqli_num_rows($query);
 
+if (empty($_SESSION['username'])) {
+    header("Location: error.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +18,6 @@ $jumlahProduk = mysqli_num_rows($query);
     <title>Delete Produk</title>
 
     <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="assets/css/main/app-dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/shared/iconly.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
@@ -23,9 +25,9 @@ $jumlahProduk = mysqli_num_rows($query);
 
 <body>
     <div id="app">
-        <?php include("./includes/sidebar.php"); ?>
+        <?php include("../includes/sidebar.php"); ?>
         <div id="main">
-            <?php include("./includes/tombollogout.php") ?>
+            <?php include("../includes/tombollogout.php") ?>
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3"></i>
