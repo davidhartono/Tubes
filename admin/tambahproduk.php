@@ -66,7 +66,7 @@ if (empty($_SESSION['username'])) {
                                             </div>
                                             <div class="mb-3">
                                                 <label for="kategori" class="form-label">Kategori</label>
-                                                <select name="kategori" id="kategori" class="form-control" required>
+                                                <select name="kategori" id="kategori" class="form-select" required>
                                                     <option value="">Pilih Satu</option>
                                                     <option value="Cold Coffee">Cold Coffee</option>
                                                     <option value="Hot Coffee">Hot Coffee</option>
