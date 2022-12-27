@@ -42,7 +42,7 @@ if (empty($_SESSION['username'])) {
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Selamat Datang Admin</h4>
+                                        <h4>Selamat Datang di Halaman Admin</h4>
                                     </div>
                                     <div class="card-body">
                                     </div>
