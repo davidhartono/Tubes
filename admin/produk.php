@@ -80,7 +80,7 @@ if (empty($_SESSION['username'])) {
                                                                     <td><?= $jumlah ?></td>
                                                                     <td><img src="./upload/<?= $data['foto'] ?>" width="100"></td>
                                                                     <td><?= $data['nama'] ?></td>
-                                                                    <td><?= $data['harga'] ?></td>
+                                                                    <td><?= number_format($data['harga']) ?></td>
                                                                     <td><?= $data['kategori'] ?></td>
                                                                     <td class="text-center">
                                                                         <a href="produk-detail.php?p=<?= $data['id']; ?>" class="btn btn-info"><i class="fas fa-search"></i>&nbsp;Detail</a> |
