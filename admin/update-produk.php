@@ -151,10 +151,10 @@ if (empty($_SESSION['username'])) {
                                                     <?php
 
                                                     if ($nama_file != '' && $imageFileType != '') {
-                                                        if ($image_size > 1000000) {
+                                                        if ($image_size > 5000000) {
                                                     ?>
                                                             <div class="alert alert-warning mt-3" role="alert">
-                                                                File tidak boleh lebih dari 1 MB
+                                                                File tidak boleh lebih dari 5 MB
                                                             </div>
                                                             <?php
                                                         } else {
