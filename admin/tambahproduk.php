@@ -109,38 +109,47 @@ if (empty($_SESSION['username'])) {
                                                 </div>
                                                 <?php
                                             } else {
-                                                if ($nama_file != '' && $imageFileType != '') {
-                                                    if ($image_size > 5000000) {
+                                                $querycek = mysqli_query($koneksi, "SELECT * FROM produk WHERE nama = '$nama'");
+                                                if (mysqli_num_rows($querycek) > 0) {
                                                 ?>
-                                                        <div class="alert alert-warning mt-3" role="alert">
-                                                            File tidak boleh lebih dari 5 MB
-                                                        </div>
-                                                        <?php
-                                                    } else {
-                                                        if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' && $imageFileType != 'gif') {
-                                                        ?>
-                                                            <div class="alert alert-warning mt-3" role="alert">
-                                                                File wajib bertipe JPG atau PNG atau JPEG atau GIF
-                                                            </div>
+                                                    <div class="alert alert-warning mt-3" role="alert">
+                                                        Nama Produk Sudah Terdaftar
+                                                    </div>
                                                     <?php
+                                                } else {
+                                                    if ($nama_file != '' && $imageFileType != '') {
+                                                        if ($image_size > 5000000) {
+                                                    ?>
+                                                            <div class="alert alert-warning mt-3" role="alert">
+                                                                File tidak boleh lebih dari 5 MB
+                                                            </div>
+                                                            <?php
                                                         } else {
-                                                            move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);
+                                                            if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' && $imageFileType != 'gif') {
+                                                            ?>
+                                                                <div class="alert alert-warning mt-3" role="alert">
+                                                                    File wajib bertipe JPG atau PNG atau JPEG atau GIF
+                                                                </div>
+                                                        <?php
+                                                            } else {
+                                                                move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                // Query untuk product
-                                                $queryTambah = mysqli_query($koneksi, "INSERT INTO produk (nama, harga, kategori, foto, detail) VALUES
+                                                    // Query untuk product
+                                                    $queryTambah = mysqli_query($koneksi, "INSERT INTO produk (nama, harga, kategori, foto, detail) VALUES
                         ('$nama', '$harga', '$kategori', '$new_name', '$detail')");
-                                                if ($queryTambah) {
-                                                    ?>
-                                                    <div class="alert alert-primary mt-3" role="alert">
-                                                        Produk Berhasil Disimpan
-                                                    </div>
+                                                    if ($queryTambah) {
+                                                        ?>
+                                                        <div class="alert alert-primary mt-3" role="alert">
+                                                            Produk Berhasil Disimpan
+                                                        </div>
 
-                                                    <meta http-equiv="refresh" content="2, url=produk.php" />
+                                                        <meta http-equiv="refresh" content="2, url=produk.php" />
                                         <?php
-                                                } else {
-                                                    echo mysqli_error($koneksi);
+                                                    } else {
+                                                        echo mysqli_error($koneksi);
+                                                    }
                                                 }
                                             }
                                         }
