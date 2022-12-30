@@ -7,7 +7,8 @@ if (isset($_POST['Signup'])) {
   $pass = $_POST['password']; // SHA1
   $email = $_POST['email'];
 
-  $sql = "INSERT INTO akun (username,password,email) VALUES ('$user','$pass','$email')";
+  $hash = password_hash($pass, PASSWORD_DEFAULT);
+  $sql = "INSERT INTO akun (username,password,email) VALUES ('$user','$hash','$email')";
 
   if ($koneksi->query($sql) === TRUE) {
     echo "<p style=\"text-align: center\"></br><font color = white><b>Registrasi akun berhasil!</b></font></p>";
@@ -55,25 +56,45 @@ if (isset($_POST['Signup'])) {
               $user_login = $_POST['username'];
               $user_pass = $_POST['password'];
 
-              $sql = "SELECT * FROM akun WHERE username = '$user_login' and password = '$user_pass'";
+              $sql = "SELECT * FROM akun WHERE username = '$user_login'";
               $query = mysqli_query($koneksi, $sql);
 
               if (!$query) {
                 die("Query gagal" . mysqli_error($koneksi));
               }
+
               while ($row = mysqli_fetch_array($query)) {
-                $user = $row['username'];
                 $email = $row['email'];
+                $user = $row['username'];
                 $pass = $row['password'];
+                $role = $row['role'];
               }
 
-              if ($user_login == $user && $user_pass == $pass) {
-                header("Location: ../admin/index.php");
-                $_SESSION['username'] = $user;
-                $_SESSION['email'] = $email;
-              } else {
-                echo "<p style=\"text-align: center\"></br><font color = red><b> User Tidak Ditemukan </b></font></p>";
-              }
+              if($query->num_rows > 0){
+                
+                  if(password_verify($user_pass, $pass)) {
+                    if ($role == 1){
+                      header("Location: ../admin/index.php");
+                      $_SESSION['username'] = $user;
+                      $_SESSION['email'] = $email;
+                      $_SESSION['password'] = $pass;
+                    } else {
+                      header("Location: ../index.php");
+                      $_SESSION['username'] = $user;
+                      $_SESSION['email'] = $email;
+                      $_SESSION['password'] = $pass;
+                    }
+                    
+                } else {
+                  echo "<p style=\"text-align: center\"></br><font color = red><b> User Tidak Ditemukan </b></font></p>";
+                }
+
+              
+            }
+
+              
+            
+              
             }
             ?>
           </fieldset>
@@ -107,7 +128,7 @@ if (isset($_POST['Signup'])) {
     </div>
   </section>
   <!-- partial -->
-  <script src=" js/register.js"></script>
+  <script src="../js/register.js"></script>
   <script>
     if (window.history.replaceState) {
       window.history.replaceState(null, null, window.location.href);

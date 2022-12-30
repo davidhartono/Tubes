@@ -24,17 +24,17 @@ include 'header.php';
         <form method="GET">
             <div class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" placeholder="Name" required>
+                <input type="text" placeholder="<?=$_SESSION['username']?>" required>
             </div>
             <div class="inputBox">
                 <span class="fas fa-envelope"></span>
-                <input type="email" placeholder="Email" required>
+                <input type="email" placeholder="<?=$_SESSION['email']?>" required>
             </div>
             <div class="inputBox">
                 <span class="fas fa-phone"></span>
                 <input type="text" placeholder="Message">
             </div>
-                <input type="submit" value="Submit" class="btn">
+                <input type="submit" value="submit" class="btn">
         </form>
     </div>
 
