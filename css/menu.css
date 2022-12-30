@@ -7,7 +7,6 @@
     outline: none;
     border: none;
     text-decoration: none;
-    transition: all 0.2s linear;
 }
 
 html {
@@ -16,7 +15,7 @@ html {
 }
 
 body {
-    background: #eee;
+    background: #fff;
 }
 
 .container {
@@ -28,7 +27,7 @@ body {
 .container .title {
     margin-top: 9rem;
     font-size: 3.5rem;
-    color: #444;
+    color: #483434;
     margin-bottom: 3rem;
     text-transform: uppercase;
     text-align: center;
@@ -46,13 +45,12 @@ body {
     background: #fff;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     outline: 0.1rem solid #ccc;
-    outline-offset: -1.5rem;
     cursor: pointer;
+    transition: 0.4s;
 }
 
 .container .products-container .product:hover {
-    outline: 0.2rem solid #222;
-    outline-offset: 0;
+    transform:scale(1.1);
 }
 
 .container .products-container .product img {

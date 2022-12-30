@@ -13,7 +13,6 @@
     box-sizing: border-box;
     outline: none; border:none;
     text-decoration: none;
-    transition: .2s linear;
 }
 
 html{
@@ -55,6 +54,7 @@ section{
 }
 
 .btn{
+    width: 30%;
     margin-top: 1rem;
     display: inline-block;
     padding: 1.5rem;
@@ -63,6 +63,7 @@ section{
     background: var(--main-color);
     cursor: pointer;
     border-radius: 20px;
+    text-align: center;
 }
 
 .btn:hover{
@@ -112,6 +113,13 @@ section{
     cursor: pointer;
     font-size: 2rem;
     margin-left: 2rem;
+}
+
+.header .icons a{
+    color:#483434;
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: 500;
 }
 
 .login-btn{
@@ -193,30 +201,218 @@ section{
 
 .home .content{
     max-width: 60rem;
+    margin-left: 15%;
 }
 
 .home .content h3{
     font-size: 5rem;
     color:#483434;
-    margin-left: 15%;
 }
 
 .home .content p{
     font-size: 2.2rem;
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.2;
     padding:1rem 0;
     color:#483434;
-    margin-left: 15%;
-}
-
-.home .content a{
-    margin-left: 15%;
 }
 
 .home .content .image img{
     width: 80%;
     margin-top: 8%;
+}
+
+.about {
+    min-height: 80vh;
+    margin-top: 12%;
+    display: grid;
+    margin-left: 8%;
+    grid-template-columns: 40% 60%;
+}
+
+.about .content h3{
+    font-size: 3rem;
+    color:#483434;
+    font-weight: 500;
+}
+
+.about .content h2{
+    margin-top:2%;
+    font-size: 4rem;
+    color:#483434;
+    font-weight: 600;
+}
+
+.about .content p{
+    margin-top: 2%;
+    font-size: 2rem;
+    font-weight: 400;
+    color:#483434;
+    line-height: 25px;
+}
+
+.about .content .image{
+    width: 30%;
+    position: absolute;
+    left: 65%;
+    top: 35%;
+
+}
+
+.about .content .image2{
+    width: 30%;
+    position: absolute;
+    left: 50%;
+    top: 23%;
+}
+
+.about .content .image3{
+    width: 30%;
+    position: absolute;
+    left: 48%;
+    top: 55%;
+}
+
+.contact {
+    min-height: 80vh;
+    margin-top: 10%;
+    display: grid;
+    margin-left: 8%;
+    grid-template-columns: 50% 50%;
+}
+
+.contact .row{
+    gap:1rem;
+    align-items: center;
+}
+
+.contact .row h3{
+    font-size: 4rem;
+    font-weight: 600;
+    color:#483434;
+    margin-bottom: 4%;
+    margin-top: 6%;
+}
+
+.contact .row p{
+    font-size: 2rem;
+    font-weight: 400;
+    color:#483434;
+}
+
+.contact .row h4{
+    margin-top: 10%;
+    font-size: 2rem;
+    font-weight: 600;
+    color:#483434;
+    margin-bottom: 5%;
+}
+
+.contact .row .share{
+    padding:1rem 0;
+    margin-right: 5%;
+}
+
+.contact .row .share a{
+    font-size: 10rem;
+    color:#483434;
+    text-align: center;
+    margin-right: 14rem;
+}
+
+.contact .row form{
+    margin-left: 10%;
+    padding:5rem 2rem;
+    text-align: center;
+}
+
+.contact .row form .inputBox{
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background:#FFF3E4;
+    border:#483434;
+    border-radius: 8px;
+}
+
+.contact .row form .inputBox span{
+    color:#483434;
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+
+.contact .row form .inputBox input{
+    width: 50%;
+    padding:2rem;
+    font-size: 1.7rem;
+    color:#483434;
+    text-transform: none;
+    background:none;
+}
+
+.profil {
+    min-height: 100vh;
+    display: grid;
+}
+
+.profil .title{
+    margin-top: 9rem;
+    font-size: 3.5rem;
+    color: #483434;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.profil .row{
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 10%;
+}
+
+.profil .row form .inputBox{
+    align-items: center;
+    margin-bottom: 2rem;
+    background:#FFF3E4;
+    border:#483434;
+    border-radius: 8px;
+}
+
+.profil .row form .inputBox span{
+    color:#483434;
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+
+.profil .row form .inputBox input{
+    width: 90%;
+    padding:2rem;
+    font-size: 1.7rem;
+    color:#483434;
+    background:none;
+}
+
+.profil .row form .cancel-btn{
+    padding: 1.5rem 3rem;
+    background-color: red;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-left: 68%;
+}
+
+.profil .row form .save-btn{
+    padding: 1.5rem 3rem;
+    background-color: #483434;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-left: 3%;
 }
 
 footer{
@@ -246,17 +442,8 @@ footer{
 
 .footer .links{
     margin-left: 5%;
-}
-
-.footer .links a{
-    padding:2rem 0;
-    gap:1rem;
-}
-
-.footer .links a{
-    padding:.7rem 2rem;
-    color:#fff;
-    font-size: 1.5rem;
+    display: grid;
+    grid-template-columns: 48% 52%;
 }
 
 .footer .links p{
@@ -268,12 +455,25 @@ footer{
     padding:.7rem 2rem;
     color:#fff;
     font-size: 1.5rem;
+}
+
+.half{
+    text-align: right;
+}
+
+.half2{
+    text-align: left;
 }
 
 .third{
-    width: 25%;
-    float: left;
-    text-align: left;
+    color:#fff;
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 3rem;
+}
+
+.third a:hover{
+    color: #ccc;
 }
 
 .footer .credit{
@@ -285,7 +485,40 @@ footer{
     text-align: center;
 }
 
+.policy {
+    min-height: 80vh;
+    margin-top: 10%;
+    display: grid;
+    margin-left: 8%;
+    margin-right: 10%;
+}
 
+.policy .row{
+    gap:1rem;
+    align-items: center;
+}
+
+.policy .row h3{
+    font-size: 4rem;
+    font-weight: 600;
+    color:#483434;
+    margin-bottom: 4%;
+    margin-top: 6%;
+}
+
+.policy .row p{
+    font-size: 1.8rem;
+    font-weight: 400;
+    color:#483434;
+}
+
+.policy .row h4{
+    margin-top: 10%;
+    font-size: 2rem;
+    font-weight: 600;
+    color:#483434;
+    margin-bottom: 5%;
+}
 
 
 
@@ -508,54 +741,6 @@ footer{
     color:var(--main-color);
 }
 
-.contact .row{
-    display: flex;
-    background:var(--black);
-    flex-wrap: wrap;
-    gap:1rem;
-}
-
-.contact .row .map{
-    flex:1 1 45rem;
-    width: 100%;
-    object-fit: cover;
-}
-
-.contact .row form{
-    flex:1 1 45rem;
-    padding:5rem 2rem;
-    text-align: center;
-}
-
-.contact .row form h3{
-    text-transform: uppercase;
-    font-size: 3.5rem;
-    color:#fff;
-}
-
-.contact .row form .inputBox{
-    display: flex;
-    align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    background:var(--bg);
-    border:var(--border);
-}
-
-.contact .row form .inputBox span{
-    color:#fff;
-    font-size: 2rem;
-    padding-left: 2rem;
-}
-
-.contact .row form .inputBox input{
-    width: 100%;
-    padding:2rem;
-    font-size: 1.7rem;
-    color:#fff;
-    text-transform: none;
-    background:none;
-}
 
 .blogs .box-container{
     display: grid;
