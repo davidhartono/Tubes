@@ -69,7 +69,7 @@ if (empty($_SESSION['username'])) {
                                                             <td><?= $data['username'] ?></td>
                                                             <td><?= $data['password'] ?></td>
                                                             <td class="text-center">
-                                                                <a href="update-user.php?id=<?= $data['id']; ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Update</a> |
+                                                                <a href="update-user.php?id=<?= $data['id']; ?>" class="btn btn-warning mb-2"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Update</a>
                                                                 <a href="delete-user.php?id=<?= $data['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus')"><i class="fa-solid fa-trash"></i>&nbsp;Delete</a>
                                                             </td>
                                                             </td>
