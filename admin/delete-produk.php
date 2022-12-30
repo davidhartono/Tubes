@@ -1,6 +1,10 @@
 <?php
 require "../includes/koneksi.php";
 
+if (empty($_SESSION['username'])) {
+    header("Location: error.php");
+}
+
 $id = $_GET["p"];
 
 $queryHapus = mysqli_query($koneksi, "DELETE FROM produk WHERE id = '$id'");
@@ -31,4 +35,4 @@ if ($queryHapus) {
 } else {
     echo mysqli_error($koneksi);
 }
-?>
+    ?>
