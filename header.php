@@ -6,6 +6,7 @@ include './includes/koneksi.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>COFTEA</title>
 
@@ -16,57 +17,61 @@ include './includes/koneksi.php';
     <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
-    
-<!-- header section starts  -->
 
-<header class="header">
+    <!-- header section starts  -->
 
-    <a href="index.php" class="logo">
-        COFTEA
-    </a>
+    <header class="header">
 
-    <nav class="navbar">
-        <a href="index.php">Home</a>
-        <a href="menu.php">Menu</a>
-        <a href="about.php">About Us</a>
-        <a href="contact.php">Contact</a>
-    </nav>
+        <a href="index.php" class="logo">
+            COFTEA
+        </a>
 
-    <div class="icons">
-        <?php
+        <nav class="navbar">
+            <a href="index.php">Home</a>
+            <a href="menu.php">Menu</a>
+            <a href="about.php">About Us</a>
+            <a href="contact.php">Contact</a>
+        </nav>
+
+        <div class="icons">
+            <?php
 
             $select_rows = mysqli_query($koneksi, "SELECT sum(jumlah) FROM cart");
             $row_count = mysqli_fetch_array($select_rows);
 
-        ?>
-        <div class="fas fa-shopping-cart" id="cart-btn"><a href="cart.php">&nbsp;&nbsp;<?= $row_count['sum(jumlah)'] ?></a></div>
-        <div class="fas fa-bars" id="menu-btn"></div>
-        <div class="fas fa-user"><a href="profil.php" class="login-btn">
-        <?php
+            ?>
+            <div class="fas fa-shopping-cart" id="cart-btn"><a href="cart.php">&nbsp;&nbsp;<?= $row_count['sum(jumlah)'] ?></a></div>
+            <div class="fas fa-bars" id="menu-btn"></div>
+
+            <?php
             require("includes/koneksi.php");
             if (empty($_SESSION['username'])) {
+                echo '<div class="fas fa-user"><a href="login/login.php" class="login-btn">';
                 echo "Login";
-        
-        ?>
-
-        </a></div>
-
-
-        <?php
-        
-        }else{
-            echo $_SESSION['username'];
 
             ?>
+
+                </a>
+        </div>
+
+
+    <?php
+
+            } else {
+                echo '<div class="fas fa-user"><a href="profil.php" class="login-btn">';
+                echo $_SESSION['username'];
+
+    ?>
         </a></div>
         <div class="fas fa-door"><a href="logout.php" onclick="return confirm('Yakin ingin logout?')">Logout</a></div>
 
-        <?php
-        }
-        ?>
+    <?php
+            }
+    ?>
     </div>
 
-</header>
+    </header>
 
-<!-- header section ends -->
+    <!-- header section ends -->
