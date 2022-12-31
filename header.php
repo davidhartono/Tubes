@@ -63,7 +63,7 @@ include './includes/koneksi.php';
 
             ?>
         </a></div>
-        <div class="fas fa-door"><a href="logout.php" onclick="return confirm('Yakin ingin logout?')">Logout</a></div>
+        <div class="fas fa-door"><a href="logout.php?logout_user" onclick="return confirm('Yakin ingin logout? seluruh barang anda di cart akan hilang')">Logout</a></div>
 
         <?php
         }
