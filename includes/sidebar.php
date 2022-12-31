@@ -41,6 +41,13 @@
                         <span style="color: #483434;">Data Akun</span>
                     </a>
                 </li>
+
+                <li class="sidebar-item">
+                    <a href="akunadmin.php" class='sidebar-link'>
+                    <i class="fa-solid fa-user-pen"></i>
+                        <span style="color: #483434;">Edit Profil</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
