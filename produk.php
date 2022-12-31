@@ -95,6 +95,8 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
                Swal.fire({
                   icon: 'success',
                   text: 'Produk Berhasil Ditambahkan ke Cart'
+               }).then(function() {
+                  window.location.replace(window.location.href);
                })
             </script>
       <?php
