@@ -70,31 +70,26 @@ if (isset($_POST['Signup'])) {
                 $role = $row['role'];
               }
 
-              if($query->num_rows > 0){
-                
-                  if(password_verify($user_pass, $pass)) {
-                    if ($role == 1){
-                      header("Location: ../admin/index.php");
-                      $_SESSION['username'] = $user;
-                      $_SESSION['email'] = $email;
-                      $_SESSION['password'] = $pass;
-                    } else {
-                      header("Location: ../index.php");
-                      $_SESSION['username'] = $user;
-                      $_SESSION['email'] = $email;
-                      $_SESSION['password'] = $pass;
-                    }
-                    
+              if ($query->num_rows > 0) {
+
+                if (password_verify($user_pass, $pass)) {
+                  if ($role == 1) {
+                    header("Location: ../admin/index.php");
+                    $_SESSION['username'] = $user;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['password'] = $pass;
+                  } else {
+                    header("Location: ../index.php");
+                    $_SESSION['username'] = $user;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['password'] = $pass;
+                  }
                 } else {
-                  echo "<p style=\"text-align: center\"></br><font color = red><b> User Tidak Ditemukan </b></font></p>";
+                  echo "<p style=\"text-align: center\"></br><font color = red><b> Password Salah </b></font></p>";
                 }
-
-              
-            }
-
-              
-            
-              
+              } else {
+                echo "<p style=\"text-align: center\"></br><font color = red><b> User Tidak Ditemukan </b></font></p>";
+              }
             }
             ?>
           </fieldset>
