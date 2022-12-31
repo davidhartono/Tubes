@@ -36,9 +36,9 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="user.php" class='sidebar-link'>
+                    <a href="akun.php" class='sidebar-link'>
                         <i class="fa-solid fa-table"></i>
-                        <span style="color: #483434;">Data Customer</span>
+                        <span style="color: #483434;">Data Akun</span>
                     </a>
                 </li>
             </ul>
