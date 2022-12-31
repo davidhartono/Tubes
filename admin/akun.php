@@ -70,11 +70,20 @@ if (empty($_SESSION['username'])) {
                                                             <td><?= $data['username'] ?></td>
                                                             <td><?= substr($data['password'], 0, 20) . "..." ?></td>
                                                             <td><?= ($data['role'] == 1 ? 'Admin' : 'User'); ?></td>
-                                                            <td class="text-center">
-                                                                <a href="update-akun.php?id=<?= $data['id']; ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a> |
-                                                                <a href="delete-akun.php?id=<?= $data['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus')"><i class="fa-solid fa-trash"></i></a>
-                                                            </td>
-                                                            </td>
+                                                            <?php
+                                                            if ($data['role'] == 1) {
+                                                            ?>
+                                                                <td></td>
+                                                            <?php
+                                                            } else {
+                                                                ?>
+                                                                <td class="text-center">
+                                                                    <a href="update-akun.php?id=<?= $data['id']; ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a> |
+                                                                    <a href="delete-akun.php?id=<?= $data['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus')"><i class="fa-solid fa-trash"></i></a>
+                                                                </td>
+                                                                <?php
+                                                            }
+                                                            ?>
                                                         </tr>
                                                     <?php
                                                         $jumlah++;
