@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2022 at 07:08 PM
+-- Generation Time: Dec 31, 2022 at 05:36 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -40,9 +40,11 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id`, `email`, `username`, `password`, `role`) VALUES
-(3, 'davidhartono04@gmail.com', 'david', 'david', 2),
+(3, 'davidhartono04@gmail.com', 'david', 'david', 1),
 (6, 'admin@gmail.com', 'admin', 'admin', 2),
-(7, 'said@gmail.com', 'said', 'saidtes', 2);
+(9, 'said@saf', 'saidd', '$2y$10$wxDIQPdyyvSBoS1eD01jIuySnsubqZkHs7kzkXuIviAiNatIxaope', 1),
+(10, 'said@gma', 'said', '$2y$10$7MigsNFvHpsBSwye.gcFzOqN.A04ucEQ9SxTviHdIQOcXaJa2P1qC', 2),
+(11, 'user@gmail.com', 'user', '$2y$10$SnsqG31ph8XitZF2SWQwNeaoOHXODogkyB5WwG3yDrxPGejXAcuhm', 2);
 
 -- --------------------------------------------------------
 
@@ -58,6 +60,15 @@ CREATE TABLE `cart` (
   `foto` varchar(300) NOT NULL,
   `jumlah` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `nama`, `harga`, `kategori`, `foto`, `jumlah`) VALUES
+(1, 'iced americano', 20000, 'Cold Coffee', 'Ewt2uVVtZwUTDyTgRvOF1a994_iced americano.png', 1),
+(2, 'vanilla cream cold brew', 25000, 'Cold Coffee', 'BDUsfV8WImjWHNMPI4CBf2868_vanilla cream cold brew.png', 1),
+(3, 'Shakerato Bianco', 27000, 'Cold Coffee', 'abwCyuZ25CBzDDX8KFbA1cf20_Shakerato Bianco.png', 1);
 
 -- --------------------------------------------------------
 
@@ -168,7 +179,13 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `produk`
