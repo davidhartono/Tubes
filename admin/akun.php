@@ -54,6 +54,7 @@ if (empty($_SESSION['username'])) {
                                                         <th>Email</th>
                                                         <th>Username</th>
                                                         <th>Password</th>
+                                                        <th>Level</th>
                                                         <th class="text-center">Action</th>
                                                     </tr>
                                                 </thead>
@@ -67,9 +68,10 @@ if (empty($_SESSION['username'])) {
                                                             <td><?= $jumlah ?></td>
                                                             <td><?= $data['email'] ?></td>
                                                             <td><?= $data['username'] ?></td>
-                                                            <td><?= $data['password'] ?></td>
+                                                            <td><?= substr($data['password'], 0, 20) . "..." ?></td>
+                                                            <td><?= ($data['role'] == 1 ? 'Admin' : 'User'); ?></td>
                                                             <td class="text-center">
-                                                                <a href="update-akun.php?id=<?= $data['id']; ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                                <a href="update-akun.php?id=<?= $data['id']; ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a> |
                                                                 <a href="delete-akun.php?id=<?= $data['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus')"><i class="fa-solid fa-trash"></i></a>
                                                             </td>
                                                             </td>
