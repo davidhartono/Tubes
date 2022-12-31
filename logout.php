@@ -5,7 +5,6 @@ if (session_destroy()) {
     if (isset($_GET['logout_user'])) {
         mysqli_query($koneksi, "DELETE FROM cart");
     }
-    ?>
 ?>
     <!DOCTYPE html>
     <html lang="en">
