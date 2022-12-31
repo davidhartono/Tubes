@@ -4,6 +4,14 @@ if (empty($_SESSION['username'])) {
     header("Location: error.php");
 }
 
+$queryProduk = mysqli_query($koneksi, "SELECT * FROM produk");
+$jumlahProduk = mysqli_num_rows($queryProduk);
+
+$queryAdmin = mysqli_query($koneksi, "SELECT * FROM akun WHERE role = 1");
+$jumlahAdmin = mysqli_num_rows($queryAdmin);
+
+$queryUser = mysqli_query($koneksi, "SELECT * FROM akun WHERE role != 1");
+$jumlahUser = mysqli_num_rows($queryUser);
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +32,7 @@ if (empty($_SESSION['username'])) {
     <div id="app">
         <?php include("../includes/sidebar.php"); ?>
         <div id="main">
-            <?php include ("../includes/tombollogout.php") ?>
+            <?php include("../includes/tombollogout.php") ?>
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3"></i>
@@ -44,6 +52,76 @@ if (empty($_SESSION['username'])) {
                                         <h4>Selamat Datang di Halaman Admin</h4>
                                     </div>
                                     <div class="card-body">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-4 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                                <div class="stats-icon purple mb-2">
+                                                    <i class="fa-solid fa-user-gear"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                                <h6 class="text-muted font-semibold">Total Admin</h6>
+                                                <h6 class="font-extrabold mb-0"><?= $jumlahAdmin ?></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-4 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                                <div class="stats-icon blue mb-2">
+                                                    <i class="fa-solid fa-user"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                                <h6 class="text-muted font-semibold">Total User</h6>
+                                                <h6 class="font-extrabold mb-0"><?= $jumlahUser ?></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-4 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                                <div class="stats-icon green mb-2">
+                                                    <i class="fa-solid fa-mug-hot"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                                <h6 class="text-muted font-semibold">Total Produk</h6>
+                                                <h6 class="font-extrabold mb-0"><?= $jumlahProduk ?></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-4 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                                <div class="stats-icon red mb-2">
+                                                    <i class="fa-solid fa-cart-shopping"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                                <h6 class="text-muted font-semibold">New Order</h6>
+                                                <h6 class="font-extrabold mb-0">112</h6>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
