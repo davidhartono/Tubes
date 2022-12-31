@@ -85,7 +85,7 @@ if (isset($_POST['Signup'])) {
                     $_SESSION['password'] = $pass;
                   }
                 } else {
-                  echo "<p style=\"text-align: center\"></br><font color = red><b> Password Salah </b></font></p>";
+                  echo "<p style=\"text-align: center\"></br><font color = red><b>Username atau Password Salah</b></font></p>";
                 }
               } else {
                 echo "<p style=\"text-align: center\"></br><font color = red><b> User Tidak Ditemukan </b></font></p>";
