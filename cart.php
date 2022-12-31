@@ -41,7 +41,7 @@ if (empty($_SESSION['username'])) {
                             <div class="cart-info">
                                 <img src="admin/upload/<?= $data['foto']; ?>" alt="">
                                 <div>
-                                    <h4><?= $data['nama']; ?></h3>
+                                    <h4><?= $data['nama']; ?></h4>
                                         Rp <?= number_format($data['harga']); ?><br><br>
                                         <a href="cart.php?remove=<?= $data['id']; ?>" onclick="return confirm('Remove item from cart?')"><i class="fas fa-trash"></i> Remove</a>
                                 </div>
