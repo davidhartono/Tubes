@@ -64,6 +64,7 @@ if (isset($_POST['Signup'])) {
               }
 
               while ($row = mysqli_fetch_array($query)) {
+                $id = $row['id'];
                 $email = $row['email'];
                 $user = $row['username'];
                 $pass = $row['password'];
@@ -75,11 +76,13 @@ if (isset($_POST['Signup'])) {
                 if (password_verify($user_pass, $pass)) {
                   if ($role == 1) {
                     header("Location: ../admin/index.php");
+                    $_SESSION['id'] = $id;
                     $_SESSION['username'] = $user;
                     $_SESSION['email'] = $email;
                     $_SESSION['password'] = $pass;
                   } else {
                     header("Location: ../index.php");
+                    $_SESSION['id'] = $id;
                     $_SESSION['username'] = $user;
                     $_SESSION['email'] = $email;
                     $_SESSION['password'] = $pass;
