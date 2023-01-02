@@ -51,15 +51,15 @@ $data = mysqli_fetch_array($query);
                                             <input type="hidden" name="id" id="" class="form-control" value="<?= $id; ?>" required>
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email</label>
-                                                <input type="email" name="email" id="email" class="form-control" value="<?= $data['email']; ?>" autocomplete="off" required>
+                                                <input type="email" name="email" id="email" class="form-control" value="<?= $data['email']; ?>" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="username" class="form-label">Username</label>
-                                                <input type="text" name="username" id="username" class="form-control" value="<?= $data['username']; ?>" required>
+                                                <label for="username" class="form-label">Username (3 - 16 characters)</label>
+                                                <input type="text" name="username" id="username" class="form-control" minlength="3" maxlength="16" value="<?= $data['username']; ?>" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="password" class="form-label">Password</label>
-                                                <input type="password" name="password" id="password" class="form-control" value="<?= $data['password']; ?>" required>
+                                                <label for="password" class="form-label">Password (8 - 16 characters)</label>
+                                                <input type="password" name="password" id="password" class="form-control" minlength="8" maxlength="16" value="<?= $data['password']; ?>" required>
                                             </div>
                                             <div class="mb-3">
                                                 <button type="submit" class="btn btn-primary" name="simpan"><i class="fa-solid fa-check"></i>&nbsp;Update</button>
