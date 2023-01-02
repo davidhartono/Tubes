@@ -40,9 +40,9 @@ if (empty($_SESSION['username'])) {
                             <div class="cart-info">
                                 <img src="admin/upload/<?= $data['foto']; ?>" alt="">
                                 <div>
-                                <h5><?= $data['nama']; ?></h5>
+                                <h5 style="text-transform: capitalize;"><?= $data['nama']; ?></h5>
                                 Rp <?= number_format($data['harga']); ?>
-                                <input type="hidden" name="produk" value="<?= $data['nama']; ?>">
+                                <input style="text-transform: capitalize;" type="hidden" name="produk" value="<?= $data['nama']; ?>">
                                 <input type="hidden" value="<?=$data['harga']; ?>"><br><br>
                                 <a href="cart.php?remove=<?= $data['id']; ?>" onclick="return confirm('Remove item from cart?')"><i class="fas fa-trash"></i> Remove</a>
                                 </div>

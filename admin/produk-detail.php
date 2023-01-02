@@ -61,7 +61,7 @@ if (empty($_SESSION['username'])) {
                                                     <img src="./upload/<?= $data['foto'] ?>" width="400" alt="">
                                                 </div>
                                                 <div class="col-md-6 offset-md-1">
-                                                    <h1><?= $data['nama'] ?></h1>
+                                                    <h1 style="text-transform: capitalize;"><?= $data['nama'] ?></h1>
                                                     <p class="fs-5">
                                                         <?= htmlspecialchars_decode($data['detail']) ?>
                                                     </p>

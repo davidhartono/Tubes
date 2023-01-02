@@ -48,7 +48,7 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
                <form action="" method="post">
                   <div class="box">
                      <img src="admin/upload/<?= $data['foto']; ?>" alt="">
-                     <h3><?= $data['nama']; ?></h3>
+                     <h3 style="text-transform: capitalize;"><?= $data['nama']; ?></h3>
                      <div class="price">Rp <?= $data['harga']; ?>/-</div>
                      <input type="hidden" name="nama_produk" value="<?= $data['nama']; ?>">
                      <input type="hidden" name="harga_produk" value="<?= $data['harga']; ?>">

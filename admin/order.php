@@ -68,7 +68,7 @@ if (empty($_SESSION['username'])) {
                                                         <tr>
                                                             <td><?= $jumlah ?></td>
                                                             <td><?= $data['username'] ?></td>
-                                                            <td><?= $data['produk'] ?></td>
+                                                            <td style="text-transform: capitalize;"><?= $data['produk'] ?></td>
                                                             <td><?= $data['item'] ?></td>
                                                             <td><?= number_format($data['harga'] * $data['item']) ?></td>
                                                             <td class="text-center">

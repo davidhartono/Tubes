@@ -68,7 +68,7 @@ echo "<link rel='stylesheet' href='css/invoice.css'>";
 
                     $rows[] = $data;
 
-                    $body .= '<tr><td>';         
+                    $body .= '<tr><td style="text-transform: capitalize;">';         
                     $body .= $data['nama'] . '</td><td>'; 
                     $body .= $data['jumlah'] . '</td><td>';  
                     $body .= $data['harga'] . '</td><td>';
@@ -79,7 +79,7 @@ echo "<link rel='stylesheet' href='css/invoice.css'>";
                     <td>
                         <div class="cart-info">
                             <div>
-                                <h5><?= $data['nama']; ?></h5>
+                                <h5 style="text-transform: capitalize;"><?= $data['nama']; ?></h5>
                                     Rp <?= number_format($data['harga']); ?><br><br>
                             </div>
                         </div>
