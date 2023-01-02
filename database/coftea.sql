@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2022 at 05:36 AM
+-- Generation Time: Jan 02, 2023 at 05:23 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -40,11 +40,13 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id`, `email`, `username`, `password`, `role`) VALUES
-(3, 'davidhartono04@gmail.com', 'david', 'david', 1),
-(6, 'admin@gmail.com', 'admin', 'admin', 2),
-(9, 'said@saf', 'saidd', '$2y$10$wxDIQPdyyvSBoS1eD01jIuySnsubqZkHs7kzkXuIviAiNatIxaope', 1),
-(10, 'said@gma', 'said', '$2y$10$7MigsNFvHpsBSwye.gcFzOqN.A04ucEQ9SxTviHdIQOcXaJa2P1qC', 2),
-(11, 'user@gmail.com', 'user', '$2y$10$SnsqG31ph8XitZF2SWQwNeaoOHXODogkyB5WwG3yDrxPGejXAcuhm', 2);
+(9, 'admin@gmail.com', 'admin', '$2y$10$F37GcpklfknUj8uJwsN7je0uAxIIDCIFB9UmXeH7kB5TRDbfpSki.', 1),
+(10, 'davidhartono04@gmail.com', 'david', '$2y$10$4aoJCLxhxBGvOa.cC7mkEO/oaPVGmoCuMl7rZJVGOL2abU8hsHgjm', 2),
+(12, 'raihanlubis184@gmail.com', 'reyac', '$2y$10$h0b2ULj3VbtncRFiX0rfB.1rNnfTuui.rl8FCwfK7/hnH3wDCiZi6', 2),
+(13, 'saidmuhammad572@gmail.com', 'saidadmin', '$2y$10$1tVYlJhh5r51yb/tkHhPg.Y/9nr298nwGQqFf2o7bg.fav8IxgaIa', 1),
+(14, 'felixmatthewjonathan@gmail.com', 'FmJ', '$2y$10$4I9sB0eNXiACUUxoiygrjukU0Q8knubGIVfPxKVnA7JuWclJDErXa', 2),
+(17, 'jessindy.goce@gmail.com', 'jess', '$2y$10$BEYG9J4H4q0Pm6tkJsANHOLfxmMXxlY0fAv4ibVcR39ci1S91FAxC', 2),
+(19, 'saidmazaya654@gmail.com', 'saiduser', '$2y$10$FjsVdD7nXnVJnyuxO7VzPO5.UW9oG4Gc8CSdsPFGJYAGM1N0wx99O', 2);
 
 -- --------------------------------------------------------
 
@@ -61,14 +63,34 @@ CREATE TABLE `cart` (
   `jumlah` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `cart`
+-- Table structure for table `orderan`
 --
 
-INSERT INTO `cart` (`id`, `nama`, `harga`, `kategori`, `foto`, `jumlah`) VALUES
-(1, 'iced americano', 20000, 'Cold Coffee', 'Ewt2uVVtZwUTDyTgRvOF1a994_iced americano.png', 1),
-(2, 'vanilla cream cold brew', 25000, 'Cold Coffee', 'BDUsfV8WImjWHNMPI4CBf2868_vanilla cream cold brew.png', 1),
-(3, 'Shakerato Bianco', 27000, 'Cold Coffee', 'abwCyuZ25CBzDDX8KFbA1cf20_Shakerato Bianco.png', 1);
+CREATE TABLE `orderan` (
+  `no` int(11) NOT NULL,
+  `username` varchar(256) NOT NULL,
+  `produk` varchar(256) NOT NULL,
+  `item` int(11) NOT NULL,
+  `harga` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orderan`
+--
+
+INSERT INTO `orderan` (`no`, `username`, `produk`, `item`, `harga`) VALUES
+(28, 'david', 'Jeju Sunset Earl Grey Tea', 3, 25000),
+(29, 'david', 'oolong tea latte', 1, 25000),
+(30, 'david', 'iced honey earl grey milk tea', 1, 25000),
+(32, 'saiduser', 'cold brew with vanilla sweet cream', 3, 25000),
+(33, 'saiduser', 'iced cappucino', 1, 25000),
+(34, 'saiduser', 'cold brew with milk', 1, 28000),
+(35, 'saiduser', 'salted caramel cloud macchiato', 1, 30000),
+(36, 'saiduser', 'honey almondmilk  flat white', 3, 27000),
+(37, 'saiduser', 'vanilla cream cold brew', 1, 25000);
 
 -- --------------------------------------------------------
 
@@ -90,7 +112,7 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `nama`, `harga`, `kategori`, `foto`, `detail`) VALUES
-(11, 'iced americano', 20000, 'Cold Coffee', 'Ewt2uVVtZwUTDyTgRvOF1a994_iced americano.png', '&lt;p&gt;cold water, over ice followed by shots of espresso.&lt;/p&gt;\r\n'),
+(11, 'Iced Americano', 20000, 'Cold Coffee', 'Ewt2uVVtZwUTDyTgRvOF1a994_iced americano.png', '&lt;p&gt;cold water, over ice followed by shots of espresso.&lt;/p&gt;\r\n'),
 (12, 'vanilla cream cold brew', 25000, 'Cold Coffee', 'BDUsfV8WImjWHNMPI4CBf2868_vanilla cream cold brew.png', '&lt;p&gt;Our&amp;nbsp;slow-steeped custom blend of CofTea&amp;reg; Cold Brew coffee accented with vanilla and topped with a delicate float of house-made vanilla cream that cascades throughout the cup. It&amp;#39;s over-the-top and super-smooth.&lt;/p&gt;\r\n'),
 (13, 'Shakerato Bianco', 27000, 'Cold Coffee', 'abwCyuZ25CBzDDX8KFbA1cf20_Shakerato Bianco.png', '&lt;p&gt;an&amp;nbsp;espresso-based iced coffee drink.&amp;nbsp;The vanilla sweet cream is a mixture of vanilla syrup, heavy cream, and milk&lt;/p&gt;\r\n'),
 (14, 'cold brew with vanilla sweet cream', 25000, 'Cold Coffee', '92ZzdfKFzLkWqCHMNIOT41b4f_cold brew with vanilla sweet cream.png', '&lt;p&gt;Our&amp;nbsp;slow-steeped custom blend of Starbucks&amp;reg; Cold Brew coffee accented with vanilla and topped with a delicate float of house-made vanilla sweet cream that cascades throughout the cup. It&amp;#39;s over-the-top and super-smooth.&lt;/p&gt;\r\n'),
@@ -157,13 +179,20 @@ INSERT INTO `produk` (`id`, `nama`, `harga`, `kategori`, `foto`, `detail`) VALUE
 -- Indexes for table `akun`
 --
 ALTER TABLE `akun`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orderan`
+--
+ALTER TABLE `orderan`
+  ADD PRIMARY KEY (`no`);
 
 --
 -- Indexes for table `produk`
@@ -179,19 +208,25 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+
+--
+-- AUTO_INCREMENT for table `orderan`
+--
+ALTER TABLE `orderan`
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
