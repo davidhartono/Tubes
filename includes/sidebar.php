@@ -48,6 +48,13 @@
                         <span style="color: #483434;">Order</span>
                     </a>
                 </li>
+
+                <li class="sidebar-item">
+                    <a href="akunadmin.php" class='sidebar-link'>
+                        <i class="fa-solid fa-user-pen"></i>
+                        <span style="color: #483434;">Edit Akun</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
