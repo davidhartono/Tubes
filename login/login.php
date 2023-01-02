@@ -1,22 +1,8 @@
 <?php
 
 require('../includes/koneksi.php');
+echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
 
-if (isset($_POST['Signup'])) {
-  $user = $_POST['username'];
-  $pass = $_POST['password']; // SHA1
-  $email = $_POST['email'];
-
-  $hash = password_hash($pass, PASSWORD_DEFAULT);
-  $sql = "INSERT INTO akun (username,password,email) VALUES ('$user','$hash','$email')";
-
-  if ($koneksi->query($sql) === TRUE) {
-    echo "<p style=\"text-align: center\"></br><font color = white><b>Registrasi akun berhasil!</b></font></p>";
-  } else {
-    echo "Terjadi kesalahan : " . $sql . "<br/>" . $koneksi->error;
-  }
-  $koneksi->close();
-}
 ?>
 
 <!DOCTYPE html>
@@ -112,13 +98,49 @@ if (isset($_POST['Signup'])) {
               <input id="signup-email" type="email" name="email" required>
             </div>
             <div class="input-block">
-              <label for="signup-username">Username</label>
-              <input id="signup-username" type="text" name="username" required>
+              <label for="signup-username">Username (3 - 16 characters)</label>
+              <input id="signup-username" type="text" name="username" minlength="3" maxlength="16" required>
             </div>
             <div class="input-block">
-              <label for="signup-password">Password</label>
-              <input id="signup-password" type="password" name="password" required>
+              <label for="signup-password">Password (8 - 16 characters)</label>
+              <input id="signup-password" type="password" name="password" minlength="8" maxlength="16" required>
             </div>
+            <?php
+            if (isset($_POST['Signup'])) {
+              $user = $_POST['username'];
+              $pass = $_POST['password']; // SHA1
+              $email = $_POST['email'];
+
+              $hash = password_hash($pass, PASSWORD_DEFAULT);
+              $cekEmail = mysqli_query($koneksi, "SELECT * FROM akun WHERE email = '$email'");
+              $sql = "INSERT INTO akun (username,password,email) VALUES ('$user','$hash','$email')";
+
+              if (mysqli_num_rows($cekEmail) > 0) {
+            ?>
+                <script>
+                  Swal.fire({
+                    icon: 'warning',
+                    text: 'Email Sudah Terdaftar.'
+                  })
+                </script>
+                <?php
+              } else {
+                if ($koneksi->query($sql) === TRUE) {
+                ?>
+                  <script>
+                    Swal.fire({
+                      icon: 'success',
+                      text: 'Registrasi Akun Berhasil.'
+                    })
+                  </script>
+            <?php
+                } else {
+                  echo "Terjadi kesalahan : " . $sql . "<br/>" . $koneksi->error;
+                }
+              }
+              $koneksi->close();
+            }
+            ?>
           </fieldset>
           <button type="submit" class="btn-signup" name="Signup">Continue</button>
         </form>
