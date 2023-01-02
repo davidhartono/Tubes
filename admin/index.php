@@ -12,6 +12,9 @@ $jumlahAdmin = mysqli_num_rows($queryAdmin);
 
 $queryUser = mysqli_query($koneksi, "SELECT * FROM akun WHERE role != 1");
 $jumlahUser = mysqli_num_rows($queryUser);
+
+$queryOrder = mysqli_query($koneksi, "SELECT * FROM orderan");
+$jumlahOrder = mysqli_num_rows($queryOrder);
 ?>
 
 <!DOCTYPE html>
@@ -119,7 +122,7 @@ $jumlahUser = mysqli_num_rows($queryUser);
                                             </div>
                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                                 <h6 class="text-muted font-semibold">New Order</h6>
-                                                <h6 class="font-extrabold mb-0">112</h6>
+                                                <h6 class="font-extrabold mb-0"><?= $jumlahOrder ?></h6>
                                             </div>
                                         </div>
                                     </div>

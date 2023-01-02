@@ -5,9 +5,9 @@ if (empty($_SESSION['username'])) {
     header("Location: error.php");
 }
 
-$id = $_GET["id"];
+$no = $_GET["no"];
 
-$queryHapus = mysqli_query($koneksi, "DELETE FROM akun WHERE id = '$id'");
+$queryHapus = mysqli_query($koneksi, "DELETE FROM orderan WHERE no = '$no'");
 
 if ($queryHapus) {
 ?>
@@ -22,16 +22,8 @@ if ($queryHapus) {
     </head>
 
     <body>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-            Swal.fire({
-                icon: 'success',
-                text: 'Akun Berhasil Dihapus'
-            }).then(function() {
-                window.location = "akun.php";
-            })
-        </script>
     <?php
+    header("location: order.php");
 } else {
     echo mysqli_error($koneksi);
 }

@@ -1,7 +1,7 @@
 <?php
 
 include('../includes/koneksi.php');
-$query = mysqli_query($koneksi, "SELECT * FROM akun");
+$query = mysqli_query($koneksi, "SELECT * FROM orderan");
 
 if (empty($_SESSION['username'])) {
     header("Location: error.php");
@@ -34,7 +34,7 @@ if (empty($_SESSION['username'])) {
             </header>
 
             <div class="page-heading">
-                <h3>Data Akun Coftea</h3>
+                <h3>Order Coftea</h3>
             </div>
             <div class="page-content">
                 <section class="row">
@@ -43,18 +43,18 @@ if (empty($_SESSION['username'])) {
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Tabel Akun</h4>
+                                        <h4>Tabel Orderan</h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive mt-3">
                                             <table class="table table-striped" id="tabelakun">
                                                 <thead class="table-dark">
                                                     <tr>
-                                                        <th>No.</th>
-                                                        <th>Email</th>
+                                                        <th>No Order</th>
                                                         <th>Username</th>
-                                                        <th>Password</th>
-                                                        <th>Level</th>
+                                                        <th>Produk</th>
+                                                        <th>Total Item</th>
+                                                        <th>Total Harga</th>
                                                         <th class="text-center">Action</th>
                                                     </tr>
                                                 </thead>
@@ -66,24 +66,14 @@ if (empty($_SESSION['username'])) {
                                                     ?>
                                                         <tr>
                                                             <td><?= $jumlah ?></td>
-                                                            <td><?= $data['email'] ?></td>
                                                             <td><?= $data['username'] ?></td>
-                                                            <td><?= substr($data['password'], 0, 20) . "..." ?></td>
-                                                            <td><?= ($data['role'] == 1 ? 'Admin' : 'User'); ?></td>
-                                                            <?php
-                                                            if ($data['role'] == 1) {
-                                                            ?>
-                                                                <td></td>
-                                                            <?php
-                                                            } else {
-                                                                ?>
-                                                                <td class="text-center">
-                                                                    <a href="update-akun.php?id=<?= $data['id']; ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a> |
-                                                                    <a href="delete-akun.php?id=<?= $data['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus')"><i class="fa-solid fa-trash"></i></a>
-                                                                </td>
-                                                                <?php
-                                                            }
-                                                            ?>
+                                                            <td><?= $data['produk'] ?></td>
+                                                            <td><?= $data['item'] ?></td>
+                                                            <td><?= $data['harga'] ?></td>
+                                                            <td class="text-center">
+                                                                <a href="selesai-order.php?no=<?= $data['no']; ?>" class="btn btn-success"><i class="fa-solid fa-check-square"></i></a> |
+                                                                <a href="delete-order.php?no=<?= $data['no']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus')"><i class="fa-solid fa-trash"></i></a>
+                                                            </td>
                                                         </tr>
                                                     <?php
                                                         $jumlah++;
