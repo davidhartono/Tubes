@@ -68,7 +68,7 @@ if (empty($_SESSION['username'])) {
                                                         if ($jumlahProduk == 0) {
                                                         ?>
                                                             <tr>
-                                                                <td class="text-center" colspan="5">Data produk tidak tersedia</td>
+                                                                <td class="text-center" colspan="6">Data produk tidak tersedia</td>
                                                             </tr>
                                                             <?php
                                                         } else {
@@ -124,9 +124,9 @@ if (empty($_SESSION['username'])) {
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        $(document).ready(function () {
-    $('#tabelproduk').DataTable();
-});
+        $(document).ready(function() {
+            $('#tabelproduk').DataTable();
+        });
     </script>
 </body>
 
