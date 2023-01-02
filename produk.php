@@ -78,31 +78,42 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
          $jumlah_produk = 1;
 
          $select_cart = mysqli_query($koneksi, "SELECT * FROM cart WHERE nama = '$nama_produk'");
-
-         if (mysqli_num_rows($select_cart) > 0) {
+         if (empty($_SESSION['username'])) {
          ?>
             <script>
                Swal.fire({
                   icon: 'warning',
-                  text: 'Produk Sudah Ada di Cart'
-               })
-            </script>
-         <?php
-         } else {
-            $insert_product = mysqli_query($koneksi, "INSERT INTO cart (nama, harga, kategori, foto, jumlah) VALUES('$nama_produk', '$harga_produk', '$kategori', '$foto_produk', '$jumlah_produk')");
-         ?>
-            <script>
-               Swal.fire({
-                  icon: 'success',
-                  text: 'Produk Berhasil Ditambahkan ke Cart'
+                  text: 'Anda Belum Login'
                }).then(function() {
-                  window.location.replace(window.location.href);
+                  window.location = "login/login.php";
                })
             </script>
+            <?php
+         } else {
+            if (mysqli_num_rows($select_cart) > 0) {
+            ?>
+               <script>
+                  Swal.fire({
+                     icon: 'warning',
+                     text: 'Produk Sudah Ada di Cart'
+                  })
+               </script>
+            <?php
+            } else {
+               $insert_product = mysqli_query($koneksi, "INSERT INTO cart (nama, harga, kategori, foto, jumlah) VALUES('$nama_produk', '$harga_produk', '$kategori', '$foto_produk', '$jumlah_produk')");
+            ?>
+               <script>
+                  Swal.fire({
+                     icon: 'success',
+                     text: 'Produk Berhasil Ditambahkan ke Cart'
+                  }).then(function() {
+                     window.location.replace(window.location.href);
+                  })
+               </script>
       <?php
+            }
          }
       }
-
       ?>
    </div>
 </div>
