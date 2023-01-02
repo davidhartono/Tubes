@@ -1,7 +1,6 @@
 <?php
 
 include './includes/koneksi.php';
-
 include 'header.php';
 echo "<link rel='stylesheet' href='css/cart.css'>";
 echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
@@ -41,9 +40,11 @@ if (empty($_SESSION['username'])) {
                             <div class="cart-info">
                                 <img src="admin/upload/<?= $data['foto']; ?>" alt="">
                                 <div>
-                                    <h4><?= $data['nama']; ?></h4>
-                                        Rp <?= number_format($data['harga']); ?><br><br>
-                                        <a href="cart.php?remove=<?= $data['id']; ?>" onclick="return confirm('Remove item from cart?')"><i class="fas fa-trash"></i> Remove</a>
+                                <h5><?= $data['nama']; ?></h5>
+                                Rp <?= number_format($data['harga']); ?>
+                                <input type="hidden" name="produk" value="<?= $data['nama']; ?>">
+                                <input type="hidden" value="<?=$data['harga']; ?>"><br><br>
+                                <a href="cart.php?remove=<?= $data['id']; ?>" onclick="return confirm('Remove item from cart?')"><i class="fas fa-trash"></i> Remove</a>
                                 </div>
                             </div>
                         </td>
@@ -58,10 +59,15 @@ if (empty($_SESSION['username'])) {
 
                         <td class="total">
                             Rp <?= number_format($sub_total) ?>
+                            <input type="hidden" name="harga" value="<?= $sub_total ?>">
+                            
                         </td>
                     </tr>
                 <?php
                     $grand_total += $sub_total;
+
+
+                    
                 };
 
                 ?>
@@ -81,12 +87,12 @@ if (empty($_SESSION['username'])) {
             </div>
 
             <div class="bottom">
+                
                 <a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to remove all items?');" class="delete-btn">
-                    <i class="fas fa-trash"></i> Remove all
+                Delete All
                 </a>
-                <a href="#" class="checkout-btn">Checkout</a>
-            </div>
-            <div class="bottom">
+                <a href="cart.php?orderan" onclick="return confirm('Are you sure you want to order these items?');" class="checkout-btn">Order Now</a>
+
 
             </div>
 
@@ -94,7 +100,7 @@ if (empty($_SESSION['username'])) {
         } else {
 
         ?>
-            <h4>Looks like your cart is empty</h4>
+            <h4>Oh, looks like your cart is empty.</h4>
             <p>Let's find your favourite coffee and tea!</p>
             <a href="menu.php" class="menu-btn">Menu</a>
 
@@ -102,9 +108,47 @@ if (empty($_SESSION['username'])) {
 
         }
 
+        if (isset($_GET['orderan'])) {
+
+            $query = mysqli_query($koneksi, "SELECT * FROM cart ");
+            $a = mysqli_num_rows($query);
+
+            while ($a > 0) {
+                while ($data = mysqli_fetch_assoc($query)) {
+                    $user = $_SESSION['username'];
+                    $produk = $data['nama'];
+                    $item = $data['jumlah'];
+                    $harga = $data['harga'];
+
+                    $order = "INSERT INTO orderan (username,produk,item,harga) VALUES ('$user','$produk','$item','$harga')";
+
+                    mysqli_query($koneksi, $order);
+
+                }
+                $a = $a - 1;
+            }
+
+
+            ?>
+
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    text: 'Your order has been placed.'
+                }).then(function() {
+                    window.location = "invoice.php?checkout";
+                })
+            </script>
+
+        ?>
+        <?php
+        };
+        
+        
         ?>
         <?php
         if (isset($_POST['update_button'])) {
+            
             $update_value = $_POST['update_jumlah'];
             $update_id = $_POST['update_jumlah_id'];
             $update_quantity_query = mysqli_query($koneksi, "UPDATE cart SET jumlah = '$update_value' WHERE id = '$update_id'");

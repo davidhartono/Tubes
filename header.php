@@ -34,16 +34,12 @@ include './includes/koneksi.php';
     </nav>
 
     <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
         <?php
 
             $select_rows = mysqli_query($koneksi, "SELECT sum(jumlah) FROM cart");
             $row_count = mysqli_fetch_array($select_rows);
 
-        ?>
-        <div class="fas fa-shopping-cart" id="cart-btn"><a href="cart.php">&nbsp;&nbsp;<?= $row_count['sum(jumlah)'] ?></a></div>
-        <div class="fas fa-bars" id="menu-btn"></div>
-        
-        <?php
             require("includes/koneksi.php");
             if (empty($_SESSION['username'])) {
                 echo '<div class="fas fa-user"><a href="login/login.php" class="login-btn">';
@@ -57,13 +53,13 @@ include './includes/koneksi.php';
         <?php
         
         }else{
-            
+            echo "<div class='fas fa-shopping-cart'><a href='cart.php'>&nbsp;&nbsp;".$row_count['sum(jumlah)']."</a></div>";
             echo '<div class="fas fa-user"><a href="profil.php" class="login-btn">';
             echo $_SESSION['username'];
 
             ?>
         </a></div>
-        <div class="fas fa-door"><a href="logout.php?logout_user" onclick="return confirm('Yakin ingin logout? seluruh barang anda di cart akan hilang')">Logout</a></div>
+        <div class="fas fa-door"><a href="logout.php?logout_user" onclick="return confirm('Yakin ingin logout?')">Logout</a></div>
 
         <?php
         }
