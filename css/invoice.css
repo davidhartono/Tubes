@@ -150,3 +150,33 @@ th:last-child {
     border-radius: 15px;
     margin-left: 57%;
 }
+
+.cart .contenta {
+    margin: 60px;
+}
+
+.cart .contenta h4 {
+    margin-top: 1.7rem;
+    font-size: 2rem;
+    color: #483434;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.cart .contenta p {
+    margin-top: 1.7rem;
+    font-size: 2rem;
+    color: #483434;
+    margin-bottom: 3rem;
+    margin-left: 10%;
+}
+
+.cart .contenta .menu-btn {
+    padding: 1.5rem 3rem;
+    background-color: #483434;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 15px;
+    margin-left: 10%;
+}
