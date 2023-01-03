@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2023 at 12:26 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Jan 03, 2023 at 04:15 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `akun` (
   `username` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
   `role` int(2) NOT NULL DEFAULT 2
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `akun`
@@ -45,7 +45,8 @@ INSERT INTO `akun` (`id`, `email`, `username`, `password`, `role`) VALUES
 (13, 'saidmuhammad572@gmail.com', 'said', '$2y$10$l47zMbE/1yrKDvTVJ/QFb.7M10fvdn.CzNRpy1..Uqmh1tmb8XXxS', 1),
 (14, 'felixmatthewjonathan@gmail.com', 'FmJ', '$2y$10$4I9sB0eNXiACUUxoiygrjukU0Q8knubGIVfPxKVnA7JuWclJDErXa', 2),
 (17, 'jessindy.goce@gmail.com', 'jess', '$2y$10$BEYG9J4H4q0Pm6tkJsANHOLfxmMXxlY0fAv4ibVcR39ci1S91FAxC', 2),
-(27, 'said@gmail.com', 'saidsaid', '$2y$10$r8Rh6j7EjeSNla136ROD9e8A7VOoTIY0CBROdGaI3wiJGDVem7jvC', 2);
+(27, 'said@gmail.com', 'saidsaid', '$2y$10$r8Rh6j7EjeSNla136ROD9e8A7VOoTIY0CBROdGaI3wiJGDVem7jvC', 2),
+(28, 'saidmazaya654@gmail.com', 'saiduser', '$2y$10$RpRPy3uQSc.a3g0Y6Qdoq.9WptH4PDAc0fRjzF0Tj7ueHVr8.0wqO', 2);
 
 -- --------------------------------------------------------
 
@@ -60,7 +61,7 @@ CREATE TABLE `cart` (
   `kategori` enum('Cold Coffee','Hot Coffee','Cold Tea','Hot Tea') NOT NULL,
   `foto` varchar(300) NOT NULL,
   `jumlah` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -74,7 +75,15 @@ CREATE TABLE `orderan` (
   `produk` varchar(256) NOT NULL,
   `item` int(11) NOT NULL,
   `harga` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orderan`
+--
+
+INSERT INTO `orderan` (`no`, `username`, `produk`, `item`, `harga`) VALUES
+(4, 'saiduser', 'iced chamomile blend tea', 2, 25000),
+(5, 'saiduser', 'iced jeju organic green tea', 1, 25000);
 
 -- --------------------------------------------------------
 
@@ -87,7 +96,7 @@ CREATE TABLE `orderselesai` (
   `username` varchar(256) NOT NULL,
   `produk` varchar(256) NOT NULL,
   `item` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orderselesai`
@@ -112,7 +121,7 @@ CREATE TABLE `produk` (
   `kategori` enum('Cold Coffee','Hot Coffee','Cold Tea','Hot Tea') DEFAULT NULL,
   `foto` varchar(256) DEFAULT NULL,
   `detail` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `produk`
@@ -221,19 +230,19 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `orderan`
 --
 ALTER TABLE `orderan`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orderselesai`
