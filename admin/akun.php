@@ -16,7 +16,8 @@ if (empty($_SESSION['username'])) {
     <title>Data Customer</title>
 
     <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/shared/iconly.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 
@@ -64,27 +65,27 @@ if (empty($_SESSION['username'])) {
                                                     while ($data = mysqli_fetch_array($query)) {
 
                                                     ?>
-                                                        <tr>
-                                                            <td><?= $jumlah ?></td>
-                                                            <td><?= $data['email'] ?></td>
-                                                            <td><?= $data['username'] ?></td>
-                                                            <td><?= substr($data['password'], 0, 20) . "..." ?></td>
-                                                            <td><?= ($data['role'] == 1 ? 'Admin' : 'User'); ?></td>
-                                                            <?php
+                                                    <tr>
+                                                        <td><?= $jumlah ?></td>
+                                                        <td><?= $data['email'] ?></td>
+                                                        <td><?= $data['username'] ?></td>
+                                                        <td><?= substr($data['password'], 0, 20) . "..." ?></td>
+                                                        <td><?= ($data['role'] == 1 ? 'Admin' : 'User'); ?></td>
+                                                        <?php
                                                             if ($data['role'] == 1) {
                                                             ?>
-                                                                <td></td>
-                                                            <?php
+                                                        <td></td>
+                                                        <?php
                                                             } else {
-                                                                ?>
-                                                                <td class="text-center">
-                                                                    <a href="update-akun.php?id=<?= $data['id']; ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a> |
-                                                                    <a href="delete-akun.php?id=<?= $data['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus')"><i class="fa-solid fa-trash"></i></a>
-                                                                </td>
-                                                                <?php
+                                                            ?>
+                                                        <td class="text-center">
+                                                            <a href="update-akun.php?id=<?= $data['id']; ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a> |
+                                                            <a href="delete-akun.php?id=<?= $data['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus')"><i class="fa-solid fa-trash"></i></a>
+                                                        </td>
+                                                        <?php
                                                             }
                                                             ?>
-                                                        </tr>
+                                                    </tr>
                                                     <?php
                                                         $jumlah++;
                                                     }
@@ -120,9 +121,9 @@ if (empty($_SESSION['username'])) {
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#tabelakun').DataTable();
-        });
+    $(document).ready(function() {
+        $('#tabelakun').DataTable();
+    });
     </script>
 
 </body>

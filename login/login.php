@@ -9,35 +9,35 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>COFTEA</title>
+    <meta charset="UTF-8">
+    <title>COFTEA</title>
 </head>
 <link rel="stylesheet" href="../css/login.css">
 
 </head>
 
 <body>
-  <!-- partial:index.partial.html -->
-  <section class="forms-section">
-    <h1 class="section-title">COFTEA</h1>
-    <div class="forms">
-      <div class="form-wrapper is-active">
-        <button type="button" class="switcher switcher-login">
-          Login
-          <span class="underline"></span>
-        </button>
-        <form class="form form-login" method="POST">
-          <fieldset>
-            <legend>Please, enter your email and password for login.</legend>
-            <div class="input-block">
-              <label for="login-username">Username</label>
-              <input id="login-username" type="username" name="username" required>
-            </div>
-            <div class="input-block">
-              <label for="login-password">Password</label>
-              <input id="login-password" type="password" name="password" required>
-            </div>
-            <?php
+    <!-- partial:index.partial.html -->
+    <section class="forms-section">
+        <h1 class="section-title">COFTEA</h1>
+        <div class="forms">
+            <div class="form-wrapper is-active">
+                <button type="button" class="switcher switcher-login">
+                    Login
+                    <span class="underline"></span>
+                </button>
+                <form class="form form-login" method="POST">
+                    <fieldset>
+                        <legend>Please, enter your email and password for login.</legend>
+                        <div class="input-block">
+                            <label for="login-username">Username</label>
+                            <input id="login-username" type="username" name="username" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="login-password">Password</label>
+                            <input id="login-password" type="password" name="password" required>
+                        </div>
+                        <?php
             if (isset($_POST['Login'])) {
               $user_login = $_POST['username'];
               $user_pass = $_POST['password'];
@@ -81,31 +81,31 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
               }
             }
             ?>
-          </fieldset>
-          <button type="submit" class="btn-login" name="Login">Login</button>
-        </form>
-      </div>
-      <div class="form-wrapper">
-        <button type="button" class="switcher switcher-signup">
-          Sign Up
-          <span class="underline"></span>
-        </button>
-        <form class="form form-signup" method="POST">
-          <fieldset>
-            <legend>Please, enter your email, password and password confirmation for sign up.</legend>
-            <div class="input-block">
-              <label for="signup-email">E-mail</label>
-              <input id="signup-email" type="email" name="email" required>
+                    </fieldset>
+                    <button type="submit" class="btn-login" name="Login">Login</button>
+                </form>
             </div>
-            <div class="input-block">
-              <label for="signup-username">Username (3 - 16 characters)</label>
-              <input id="signup-username" type="text" name="username" minlength="3" maxlength="16" required>
-            </div>
-            <div class="input-block">
-              <label for="signup-password">Password (8 - 16 characters)</label>
-              <input id="signup-password" type="password" name="password" minlength="8" maxlength="16" required>
-            </div>
-            <?php
+            <div class="form-wrapper">
+                <button type="button" class="switcher switcher-signup">
+                    Sign Up
+                    <span class="underline"></span>
+                </button>
+                <form class="form form-signup" method="POST">
+                    <fieldset>
+                        <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+                        <div class="input-block">
+                            <label for="signup-email">E-mail</label>
+                            <input id="signup-email" type="email" name="email" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="signup-username">Username (3 - 16 characters)</label>
+                            <input id="signup-username" type="text" name="username" minlength="3" maxlength="16" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="signup-password">Password (8 - 16 characters)</label>
+                            <input id="signup-password" type="password" name="password" minlength="8" maxlength="16" required>
+                        </div>
+                        <?php
             if (isset($_POST['Signup'])) {
               $user = $_POST['username'];
               $pass = $_POST['password']; // SHA1
@@ -117,13 +117,13 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
 
               if (mysqli_num_rows($cekEmail) > 0) {
             ?>
-                <script>
-                  Swal.fire({
-                    icon: 'warning',
-                    text: 'Email Sudah Terdaftar.'
-                  })
-                </script>
-                <?php
+                        <script>
+                        Swal.fire({
+                            icon: 'warning',
+                            text: 'Email Sudah Terdaftar.'
+                        })
+                        </script>
+                        <?php
               } else {
                 if ($koneksi->query($sql) === TRUE) {
                     $_SESSION['id'] = $id;
@@ -131,16 +131,16 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
                     $_SESSION['email'] = $_POST['email'];
                     $_SESSION['password'] = $_POST['password'];
                 ?>
-                  <script>
-                    Swal.fire({
-                      icon: 'success',
-                      text: 'Registrasi Akun Berhasil.'
-                    }).then(function() {
-                    window.location = "../index.php";
-                    
-                })
-                  </script>
-            <?php
+                        <script>
+                        Swal.fire({
+                            icon: 'success',
+                            text: 'Registrasi Akun Berhasil.'
+                        }).then(function() {
+                            window.location = "../index.php";
+
+                        })
+                        </script>
+                        <?php
               } else {
                   echo "Terjadi kesalahan : " . $sql . "<br/>" . $koneksi->error;
                 }
@@ -148,19 +148,19 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
               $koneksi->close();
             }
             ?>
-          </fieldset>
-          <button type="submit" class="btn-signup" name="Signup">Continue</button>
-        </form>
-      </div>
-    </div>
-  </section>
-  <!-- partial -->
-  <script src="../js/register.js"></script>
-  <script>
+                    </fieldset>
+                    <button type="submit" class="btn-signup" name="Signup">Continue</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- partial -->
+    <script src="../js/register.js"></script>
+    <script>
     if (window.history.replaceState) {
-      window.history.replaceState(null, null, window.location.href);
+        window.history.replaceState(null, null, window.location.href);
     }
-  </script>
+    </script>
 </body>
 
 </html>

@@ -15,6 +15,9 @@ $jumlahUser = mysqli_num_rows($queryUser);
 
 $queryOrder = mysqli_query($koneksi, "SELECT * FROM orderan");
 $jumlahOrder = mysqli_num_rows($queryOrder);
+
+$queryOrderSelesai = mysqli_query($koneksi, "SELECT * FROM orderselesai");
+$jumlahOrderSelesai = mysqli_num_rows($queryOrderSelesai);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +29,8 @@ $jumlahOrder = mysqli_num_rows($queryOrder);
     <title>Dashboard</title>
 
     <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/shared/iconly.css">
 
 </head>
@@ -49,12 +53,29 @@ $jumlahOrder = mysqli_num_rows($queryOrder);
                 <section class="row">
                     <div class="col-12 col-lg-12">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-9">
                                 <div class="card">
-                                    <div class="card-header">
+                                    <div class="card-header px-4 py-4-5">
                                         <h4>Selamat Datang di Halaman Admin</h4>
                                     </div>
                                     <div class="card-body">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-4 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                                <div class="stats-icon mb-2" style="background-color: #4CAF50;">
+                                                    <i class="fa-solid fa-check"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                                <h6 class="text-muted font-semibold">Order Selesai</h6>
+                                                <h6 class="font-extrabold mb-0"><?= $jumlahOrderSelesai ?></h6>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

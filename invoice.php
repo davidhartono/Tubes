@@ -25,12 +25,12 @@ echo "<link rel='stylesheet' href='css/invoice.css'>";
         if (mysqli_num_rows($query) > 0) {
         ?>
 
-    <h3 class="harga">Your order has been received.</h3>
-    <h4>Thank you for your purchase!</h4>
-    <p>Please check your email address.</p>
-    
-    <h4>Items ordered</h4>
-            
+        <h3 class="harga">Your order has been received.</h3>
+        <h4>Thank you for your purchase!</h4>
+        <p>Please check your email address.</p>
+
+        <h4>Items ordered</h4>
+
         <table class="table">
 
             <tr>
@@ -75,26 +75,26 @@ echo "<link rel='stylesheet' href='css/invoice.css'>";
                     $body .= $sub_total . '</td></tr>';  
                     
                     ?>
-                <tr>
-                    <td>
-                        <div class="cart-info">
-                            <div>
-                                <h5 style="text-transform: capitalize;"><?= $data['nama']; ?></h5>
-                                    Rp <?= number_format($data['harga']); ?><br><br>
-                            </div>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <div>
+                            <h5 style="text-transform: capitalize;"><?= $data['nama']; ?></h5>
+                            Rp <?= number_format($data['harga']); ?><br><br>
                         </div>
-                    </td>
+                    </div>
+                </td>
 
-                    <td class="quantity">
-                        <?= $data['jumlah']; ?>
-                    </td>
+                <td class="quantity">
+                    <?= $data['jumlah']; ?>
+                </td>
 
-                    <td class="total">
-                        Rp <?= number_format($sub_total) ?>
-                    </td>
-                </tr>
+                <td class="total">
+                    Rp <?= number_format($sub_total) ?>
+                </td>
+            </tr>
 
-                    <?php
+            <?php
                     
                 
                     // echo
@@ -127,7 +127,7 @@ echo "<link rel='stylesheet' href='css/invoice.css'>";
 
             ?>
         </table>
-        
+
         <div class="total-price">
 
             <table>
@@ -144,7 +144,7 @@ echo "<link rel='stylesheet' href='css/invoice.css'>";
         <div class="bottom">
             <a href="index.php" class="checkout-btn">Finish</a>
         </div>
-            <?php
+        <?php
         }
 
         if(isset($_GET['checkout'])){
@@ -153,7 +153,7 @@ echo "<link rel='stylesheet' href='css/invoice.css'>";
         ?>
 
     </div>
-    
+
 </section>
 
 <?php

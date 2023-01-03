@@ -16,7 +16,8 @@ if (empty($_SESSION['username'])) {
     <title>Data Order</title>
 
     <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/shared/iconly.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.bootstrap5.min.css">
@@ -63,12 +64,12 @@ if (empty($_SESSION['username'])) {
                                                     while ($data = mysqli_fetch_array($query)) {
 
                                                     ?>
-                                                        <tr>
-                                                            <td><?= $jumlah ?></td>
-                                                            <td><?= $data['username'] ?></td>
-                                                            <td style="text-transform: capitalize;"><?= $data['produk'] ?></td>
-                                                            <td><?= $data['item'] ?></td>
-                                                        </tr>
+                                                    <tr>
+                                                        <td><?= $jumlah ?></td>
+                                                        <td><?= $data['username'] ?></td>
+                                                        <td style="text-transform: capitalize;"><?= $data['produk'] ?></td>
+                                                        <td><?= $data['item'] ?></td>
+                                                    </tr>
                                                     <?php
                                                         $jumlah++;
                                                     }
@@ -112,17 +113,17 @@ if (empty($_SESSION['username'])) {
     <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.colVis.min.js"></script>
     <script>
-        $(document).ready(function() {
-            var table = $('#tabelorder').DataTable({
-                buttons: ['copy', 'csv', 'excel', 'pdf', 'colvis'],
-                dom: "<'row'<'col-md-3'l><'col-md-6'B><'col-md-3'f>>" +
-                    "<'row'<'col-md-12'tr>>" +
-                    "<'row'<'col-md-5'i><'col-md-7'p>>"
-            });
-
-            table.buttons().container()
-                .appendTo('#tabelwrapper .col-md-6:eq(0)');
+    $(document).ready(function() {
+        var table = $('#tabelorder').DataTable({
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'colvis'],
+            dom: "<'row'<'col-md-3'l><'col-md-6'B><'col-md-3'f>>" +
+                "<'row'<'col-md-12'tr>>" +
+                "<'row'<'col-md-5'i><'col-md-7'p>>"
         });
+
+        table.buttons().container()
+            .appendTo('#tabelwrapper .col-md-6:eq(0)');
+    });
     </script>
 
 </body>

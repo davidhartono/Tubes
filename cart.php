@@ -23,47 +23,47 @@ if (empty($_SESSION['username'])) {
         $grand_total = 0;
         if (mysqli_num_rows($query) > 0) {
         ?>
-            <h3 class="title">CART</h3>
-            <table class="table">
+        <h3 class="title">CART</h3>
+        <table class="table">
 
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Subtotal</th>
-                </tr>
-                <?php
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            <?php
                 while ($data = mysqli_fetch_assoc($query)) {
                     $sub_total = $data['harga'] * $data['jumlah'];
                 ?>
-                    <tr>
-                        <td>
-                            <div class="cart-info">
-                                <img src="admin/upload/<?= $data['foto']; ?>" alt="">
-                                <div>
-                                <h5 style="text-transform: capitalize;"><?= $data['nama']; ?></h5>
-                                Rp <?= number_format($data['harga']); ?>
-                                <input style="text-transform: capitalize;" type="hidden" name="produk" value="<?= $data['nama']; ?>">
-                                <input type="hidden" value="<?=$data['harga']; ?>"><br><br>
-                                <a href="cart.php?remove=<?= $data['id']; ?>" onclick="return confirm('Remove item from cart?')"><i class="fas fa-trash"></i> Remove</a>
-                                </div>
-                            </div>
-                        </td>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="admin/upload/<?= $data['foto']; ?>" alt="">
+                        <div>
+                            <h5 style="text-transform: capitalize;"><?= $data['nama']; ?></h5>
+                            Rp <?= number_format($data['harga']); ?>
+                            <input style="text-transform: capitalize;" type="hidden" name="produk" value="<?= $data['nama']; ?>">
+                            <input type="hidden" value="<?=$data['harga']; ?>"><br><br>
+                            <a href="cart.php?remove=<?= $data['id']; ?>" onclick="return confirm('Remove item from cart?')"><i class="fas fa-trash"></i> Remove</a>
+                        </div>
+                    </div>
+                </td>
 
-                        <td>
-                            <form action="" method="post">
-                                <input type="hidden" name="update_jumlah_id" value="<?= $data['id']; ?>" class="form-control">
-                                <input type="number" name="update_jumlah" min="1" value="<?= $data['jumlah']; ?>" class="form-control">
-                                <input type="submit" value="Update" name="update_button" class="update-btn">
-                            </form>
-                        </td>
+                <td>
+                    <form action="" method="post">
+                        <input type="hidden" name="update_jumlah_id" value="<?= $data['id']; ?>" class="form-control">
+                        <input type="number" name="update_jumlah" min="1" value="<?= $data['jumlah']; ?>" class="form-control">
+                        <input type="submit" value="Update" name="update_button" class="update-btn">
+                    </form>
+                </td>
 
-                        <td class="total">
-                            Rp <?= number_format($sub_total) ?>
-                            <input type="hidden" name="harga" value="<?= $sub_total ?>">
-                            
-                        </td>
-                    </tr>
-                <?php
+                <td class="total">
+                    Rp <?= number_format($sub_total) ?>
+                    <input type="hidden" name="harga" value="<?= $sub_total ?>">
+
+                </td>
+            </tr>
+            <?php
                     $grand_total += $sub_total;
 
 
@@ -71,38 +71,38 @@ if (empty($_SESSION['username'])) {
                 };
 
                 ?>
+        </table>
+        <div class="total-price">
+
+            <table>
+                <tr>
+                    <td>Total</td>
+                    <td>Rp <?= number_format($grand_total); ?></td>
+                </tr>
+                <tr>
+
+                </tr>
             </table>
-            <div class="total-price">
 
-                <table>
-                    <tr>
-                        <td>Total</td>
-                        <td>Rp <?= number_format($grand_total); ?></td>
-                    </tr>
-                    <tr>
+        </div>
 
-                    </tr>
-                </table>
+        <div class="bottom">
 
-            </div>
-
-            <div class="bottom">
-                
-                <a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to remove all items?');" class="delete-btn">
+            <a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to remove all items?');" class="delete-btn">
                 Delete All
-                </a>
-                <a href="cart.php?orderan" onclick="return confirm('Are you sure you want to order these items?');" class="checkout-btn">Order Now</a>
+            </a>
+            <a href="cart.php?orderan" onclick="return confirm('Are you sure you want to order these items?');" class="checkout-btn">Order Now</a>
 
 
-            </div>
+        </div>
 
         <?php
         } else {
 
         ?>
-            <h4>Oh, looks like your cart is empty.</h4>
-            <p>Let's find your favourite coffee and tea!</p>
-            <a href="menu.php" class="menu-btn">Menu</a>
+        <h4>Oh, looks like your cart is empty.</h4>
+        <p>Let's find your favourite coffee and tea!</p>
+        <a href="menu.php" class="menu-btn">Menu</a>
 
         <?php
 
@@ -131,14 +131,14 @@ if (empty($_SESSION['username'])) {
 
             ?>
 
-            <script>
-                Swal.fire({
-                    icon: 'success',
-                    text: 'Your order has been placed.'
-                }).then(function() {
-                    window.location = "invoice.php?checkout";
-                })
-            </script>
+        <script>
+        Swal.fire({
+            icon: 'success',
+            text: 'Your order has been placed.'
+        }).then(function() {
+            window.location = "invoice.php?checkout";
+        })
+        </script>
 
         ?>
         <?php
@@ -154,15 +154,15 @@ if (empty($_SESSION['username'])) {
             $update_quantity_query = mysqli_query($koneksi, "UPDATE cart SET jumlah = '$update_value' WHERE id = '$update_id'");
             if ($update_quantity_query) {
         ?>
-                <script>
-                    Swal.fire({
-                        icon: 'success',
-                        text: 'Produk Berhasil Diupdate'
-                    }).then(function() {
-                        window.location = "cart.php";
-                    })
-                </script>
-            <?php
+        <script>
+        Swal.fire({
+            icon: 'success',
+            text: 'Produk Berhasil Diupdate'
+        }).then(function() {
+            window.location = "cart.php";
+        })
+        </script>
+        <?php
             };
         };
 
@@ -171,14 +171,14 @@ if (empty($_SESSION['username'])) {
             mysqli_query($koneksi, "DELETE FROM cart WHERE id = '$remove_id'");
             ?>
 
-            <script>
-                Swal.fire({
-                    icon: 'success',
-                    text: 'Produk Berhasil Dihapus'
-                }).then(function() {
-                    window.location = "cart.php";
-                })
-            </script>
+        <script>
+        Swal.fire({
+            icon: 'success',
+            text: 'Produk Berhasil Dihapus'
+        }).then(function() {
+            window.location = "cart.php";
+        })
+        </script>
         <?php
         };
 
@@ -186,14 +186,14 @@ if (empty($_SESSION['username'])) {
             mysqli_query($koneksi, "DELETE FROM cart");
         ?>
 
-            <script>
-                Swal.fire({
-                    icon: 'success',
-                    text: 'Seluruh Produk Berhasil Dihapus'
-                }).then(function() {
-                    window.location = "cart.php";
-                })
-            </script>
+        <script>
+        Swal.fire({
+            icon: 'success',
+            text: 'Seluruh Produk Berhasil Dihapus'
+        }).then(function() {
+            window.location = "cart.php";
+        })
+        </script>
         <?php
         }
         ?>

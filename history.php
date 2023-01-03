@@ -13,27 +13,27 @@ if (empty($_SESSION['username'])) {
 
         <?php
         $username = $_SESSION['username'];
-        
-        
+
+
         $query = mysqli_query($koneksi, "SELECT * FROM orderselesai WHERE username = '$username'");
         ?>
 
-<h3 class="harga">Purchase History</h3>
+        <h3 class="harga">Purchase History</h3>
 
 
-<table class="table">
-    
-    <tr>
-        <th>Product Name</th>
+        <table class="table">
+
+            <tr>
+                <th>Product Name</th>
                 <th class="quantity">Quantity</th>
             </tr>
-            
+
             <tr>
                 <?php
                 if (mysqli_num_rows($query) > 0) {
-                    while($data = mysqli_fetch_assoc($query)){
+                    while ($data = mysqli_fetch_assoc($query)) {
 
-                        ?>
+                ?>
                 <td>
                     <div class="cart-info">
                         <div>
@@ -41,22 +41,22 @@ if (empty($_SESSION['username'])) {
                         </div>
                     </div>
                 </td>
-                
+
                 <td class="quantity">
                     <?= $data['item']; ?>
                 </td>
             </tr>
             <?php
-            }
-            
-            ?>
+                    }
+                }
+    ?>
         </table>
     </div>
 </section>
 
 <?php
-        
-    }
+
+
 include 'footer.php';
 
 ?>

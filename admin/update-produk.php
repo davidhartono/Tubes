@@ -31,7 +31,8 @@ if (empty($_SESSION['username'])) {
     <title>Update Produk</title>
 
     <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/shared/iconly.css">
 
 </head>
@@ -76,27 +77,27 @@ if (empty($_SESSION['username'])) {
                                                     <?php
                                                     if ($data['kategori'] == 'Cold Coffee') {
                                                     ?>
-                                                        <option value="Hot Coffee">Hot Coffee</option>
-                                                        <option value="Cold Tea">Cold Tea</option>
-                                                        <option value="Hot Tea">Hot Tea</option>
+                                                    <option value="Hot Coffee">Hot Coffee</option>
+                                                    <option value="Cold Tea">Cold Tea</option>
+                                                    <option value="Hot Tea">Hot Tea</option>
                                                     <?php
                                                     } else if ($data['kategori'] == 'Hot Coffee') {
                                                     ?>
-                                                        <option value="Cold Coffee">Cold Coffee</option>
-                                                        <option value="Cold Tea">Cold Tea</option>
-                                                        <option value="Hot Tea">Hot Tea</option>
+                                                    <option value="Cold Coffee">Cold Coffee</option>
+                                                    <option value="Cold Tea">Cold Tea</option>
+                                                    <option value="Hot Tea">Hot Tea</option>
                                                     <?php
                                                     } else if ($data['kategori'] == 'Cold Tea') {
                                                     ?>
-                                                        <option value="Cold Coffee">Cold Coffee</option>
-                                                        <option value="Hot Coffee">Hot Coffee</option>
-                                                        <option value="Hot Tea">Hot Tea</option>
+                                                    <option value="Cold Coffee">Cold Coffee</option>
+                                                    <option value="Hot Coffee">Hot Coffee</option>
+                                                    <option value="Hot Tea">Hot Tea</option>
                                                     <?php
                                                     } else {
                                                     ?>
-                                                        <option value="Cold Coffee">Cold Coffee</option>
-                                                        <option value="Hot Coffee">Hot Coffee</option>
-                                                        <option value="Cold Tea">Cold Tea</option>
+                                                    <option value="Cold Coffee">Cold Coffee</option>
+                                                    <option value="Hot Coffee">Hot Coffee</option>
+                                                    <option value="Cold Tea">Cold Tea</option>
                                                     <?php
                                                     }
                                                     ?>
@@ -132,49 +133,56 @@ if (empty($_SESSION['username'])) {
                                             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
                                             $image_size = $_FILES["foto"]["size"];
                                             $new_name = $nama_file;
-
-                                            if ($nama == '' || $harga == '' || $kategori == '') {
+                                            $querycek = mysqli_query($koneksi, "SELECT * FROM produk WHERE nama = '$nama'");
+                                            
+                                            if (mysqli_num_rows($querycek) > 0) {
+                                            ?>
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            Nama Produk Sudah Terdaftar
+                                        </div>
+                                        <?php
+                                            } else if ($nama == '' || $harga == '' || $kategori == '') {
                                         ?>
-                                                <div class="alert alert-warning mt-3" role="alert">
-                                                    Nama, Harga dan Kategori Wajib Diisi
-                                                </div>
-                                                <?php
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            Nama, Harga dan Kategori Wajib Diisi
+                                        </div>
+                                        <?php
                                             } else {
                                                 $queryUpdate = mysqli_query($koneksi, "UPDATE produk SET nama = '$nama', harga = '$harga', kategori = '$kategori', detail = '$detail' WHERE id = $id");
                                                 if ($queryUpdate) {
                                                 ?>
-                                                    <div class="alert alert-primary mt-3" role="alert">
-                                                        Produk Berhasil Diupdate
-                                                    </div>
+                                        <div class="alert alert-primary mt-3" role="alert">
+                                            Produk Berhasil Diupdate
+                                        </div>
 
-                                                    <meta http-equiv="refresh" content="2, url=produk.php" />
-                                                    <?php
+                                        <meta http-equiv="refresh" content="2, url=produk.php" />
+                                        <?php
 
                                                     if ($nama_file != '' && $imageFileType != '') {
                                                         if ($image_size > 5000000) {
                                                     ?>
-                                                            <div class="alert alert-warning mt-3" role="alert">
-                                                                File tidak boleh lebih dari 5 MB
-                                                            </div>
-                                                            <?php
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            File tidak boleh lebih dari 5 MB
+                                        </div>
+                                        <?php
                                                         } else {
                                                             if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' && $imageFileType != 'gif') {
                                                             ?>
-                                                                <div class="alert alert-warning mt-3" role="alert">
-                                                                    File wajib bertipe JPG atau PNG atau JPEG atau GIF
-                                                                </div>
-                                                                <?php
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            File wajib bertipe JPG atau PNG atau JPEG atau GIF
+                                        </div>
+                                        <?php
                                                             } else {
                                                                 move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);
 
                                                                 $queryUpdateFoto = mysqli_query($koneksi, "UPDATE produk SET foto = '$new_name' WHERE id = $id");
                                                                 if ($queryUpdateFoto) {
                                                                 ?>
-                                                                    <div class="alert alert-primary mt-3" role="alert">
-                                                                        Foto Berhasil Diupdate
-                                                                    </div>
+                                        <div class="alert alert-primary mt-3" role="alert">
+                                            Foto Berhasil Diupdate
+                                        </div>
 
-                                                                    <meta http-equiv="refresh" content="2, url=produk.php" />
+                                        <meta http-equiv="refresh" content="2, url=produk.php" />
                                         <?php
                                                                 } else {
                                                                     echo mysqli_error($koneksi);
@@ -211,7 +219,7 @@ if (empty($_SESSION['username'])) {
     <script src="assets/js/pages/dashboard.js"></script>
     <script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace('detail');
+    CKEDITOR.replace('detail');
     </script>
 
 </body>

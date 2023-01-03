@@ -26,7 +26,8 @@ if (empty($_SESSION['username'])) {
     <title>Tambah Produk</title>
 
     <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/shared/iconly.css">
 
 </head>
@@ -104,33 +105,33 @@ if (empty($_SESSION['username'])) {
 
                                             if ($nama == '' || $harga == '' || $kategori == '') {
                                         ?>
-                                                <div class="alert alert-warning mt-3" role="alert">
-                                                    Nama, Harga dan Kategori Wajib Diisi
-                                                </div>
-                                                <?php
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            Nama, Harga dan Kategori Wajib Diisi
+                                        </div>
+                                        <?php
                                             } else {
                                                 $querycek = mysqli_query($koneksi, "SELECT * FROM produk WHERE nama = '$nama'");
                                                 if (mysqli_num_rows($querycek) > 0) {
                                                 ?>
-                                                    <div class="alert alert-warning mt-3" role="alert">
-                                                        Nama Produk Sudah Terdaftar
-                                                    </div>
-                                                    <?php
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            Nama Produk Sudah Terdaftar
+                                        </div>
+                                        <?php
                                                 } else {
                                                     if ($nama_file != '' && $imageFileType != '') {
                                                         if ($image_size > 5000000) {
                                                     ?>
-                                                            <div class="alert alert-warning mt-3" role="alert">
-                                                                File tidak boleh lebih dari 5 MB
-                                                            </div>
-                                                            <?php
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            File tidak boleh lebih dari 5 MB
+                                        </div>
+                                        <?php
                                                         } else {
                                                             if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' && $imageFileType != 'gif') {
                                                             ?>
-                                                                <div class="alert alert-warning mt-3" role="alert">
-                                                                    File wajib bertipe JPG atau PNG atau JPEG atau GIF
-                                                                </div>
-                                                        <?php
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            File wajib bertipe JPG atau PNG atau JPEG atau GIF
+                                        </div>
+                                        <?php
                                                             } else {
                                                                 move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);
                                                             }
@@ -141,11 +142,11 @@ if (empty($_SESSION['username'])) {
                         ('$nama', '$harga', '$kategori', '$new_name', '$detail')");
                                                     if ($queryTambah) {
                                                         ?>
-                                                        <div class="alert alert-primary mt-3" role="alert">
-                                                            Produk Berhasil Disimpan
-                                                        </div>
+                                        <div class="alert alert-primary mt-3" role="alert">
+                                            Produk Berhasil Disimpan
+                                        </div>
 
-                                                        <meta http-equiv="refresh" content="2, url=produk.php" />
+                                        <meta http-equiv="refresh" content="2, url=produk.php" />
                                         <?php
                                                     } else {
                                                         echo mysqli_error($koneksi);
@@ -179,7 +180,7 @@ if (empty($_SESSION['username'])) {
     <script src="assets/js/pages/dashboard.js"></script>
     <script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace('detail');
+    CKEDITOR.replace('detail');
     </script>
 
 </body>

@@ -6,6 +6,7 @@ include './includes/koneksi.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>COFTEA</title>
 
@@ -16,26 +17,27 @@ include './includes/koneksi.php';
     <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
-    
-<!-- header section starts  -->
 
-<header class="header">
+    <!-- header section starts  -->
 
-    <a href="index.php" class="logo">
-        COFTEA
-    </a>
+    <header class="header">
 
-    <nav class="navbar">
-        <a href="index.php">Home</a>
-        <a href="menu.php">Menu</a>
-        <a href="about.php">About Us</a>
-        <a href="contact.php">Contact</a>
-    </nav>
+        <a href="index.php" class="logo">
+            COFTEA
+        </a>
 
-    <div class="icons">
-        <div class="fas fa-bars" id="menu-btn"></div>
-        <?php
+        <nav class="navbar">
+            <a href="index.php">Home</a>
+            <a href="menu.php">Menu</a>
+            <a href="about.php">About Us</a>
+            <a href="contact.php">Contact</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <?php
 
             $select_rows = mysqli_query($koneksi, "SELECT sum(jumlah) FROM cart");
             $row_count = mysqli_fetch_array($select_rows);
@@ -47,7 +49,8 @@ include './includes/koneksi.php';
         
         ?>
 
-        </a></div>
+            </a>
+        </div>
 
 
         <?php
@@ -65,8 +68,8 @@ include './includes/koneksi.php';
         <?php
         }
         ?>
-    </div>
+        </div>
 
-</header>
+    </header>
 
-<!-- header section ends -->
+    <!-- header section ends -->

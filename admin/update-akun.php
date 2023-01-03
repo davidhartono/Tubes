@@ -21,7 +21,8 @@ if (empty($_SESSION['username'])) {
     <title>Update Akun</title>
 
     <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/shared/iconly.css">
 
 </head>
@@ -74,22 +75,31 @@ if (empty($_SESSION['username'])) {
                                             $password = $_POST['password'];
 
                                             $hash = password_hash($password, PASSWORD_DEFAULT);
-                                            if ($email == '' || $username == '' || $password == '') {
-                                        ?>
-                                                <div class="alert alert-warning mt-3" role="alert">
-                                                    Email, Username dan Password Wajib Diisi
-                                                </div>
-                                                <?php
-                                            } else {
-                                                $queryUpdate = mysqli_query($koneksi, "UPDATE akun SET email = '$email', username = '$username', password = '$hash' WHERE id = $id");
-                                                if ($queryUpdate) {
+                                            $cekEmail = mysqli_query($koneksi, "SELECT * FROM akun WHERE email = '$email'");
+                                            if (mysqli_num_rows($cekEmail) > 0) {
                                                 ?>
-                                                    <div class="alert alert-primary mt-3" role="alert">
-                                                        Data Akun Berhasil Diupdate
-                                                    </div>
-
-                                                    <meta http-equiv="refresh" content="2, url=akun.php" />
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            Email Sudah Terdaftar
+                                        </div>
                                         <?php
+                                            } else {
+                                                if ($email == '' || $username == '' || $password == '') {
+                                                    ?>
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            Email, Username dan Password Wajib Diisi
+                                        </div>
+                                        <?php
+                                                } else {
+                                                    $queryUpdate = mysqli_query($koneksi, "UPDATE akun SET email = '$email', username = '$username', password = '$hash' WHERE id = $id");
+                                                    if ($queryUpdate) {
+                                                        ?>
+                                        <div class="alert alert-primary mt-3" role="alert">
+                                            Data Akun Berhasil Diupdate
+                                        </div>
+
+                                        <meta http-equiv="refresh" content="2, url=akun.php" />
+                                        <?php
+                                                    }
                                                 }
                                             }
                                         }
