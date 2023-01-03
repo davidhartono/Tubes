@@ -18,7 +18,8 @@ $data = mysqli_fetch_array($query);
     <title>Update Akun</title>
 
     <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/shared/iconly.css">
 
 </head>
@@ -54,11 +55,13 @@ $data = mysqli_fetch_array($query);
                                                 <input type="email" name="email" id="email" class="form-control" value="<?= $data['email']; ?>" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="username" class="form-label">Username (3 - 16 characters)</label>
+                                                <label for="username" class="form-label">Username (3 - 16
+                                                    characters)</label>
                                                 <input type="text" name="username" id="username" class="form-control" minlength="3" maxlength="16" value="<?= $data['username']; ?>" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="password" class="form-label">Password (8 - 16 characters)</label>
+                                                <label for="password" class="form-label">Password (8 - 16
+                                                    characters)</label>
                                                 <input type="password" name="password" id="password" class="form-control" minlength="8" maxlength="16" value="<?= $data['password']; ?>" required>
                                             </div>
                                             <div class="mb-3">
@@ -73,22 +76,31 @@ $data = mysqli_fetch_array($query);
                                             $password = $_POST['password'];
 
                                             $hash = password_hash($password, PASSWORD_DEFAULT);
-                                            if ($email == '' || $username == '' || $password == '') {
-                                        ?>
-                                                <div class="alert alert-warning mt-3" role="alert">
-                                                    Email, Username dan Password Wajib Diisi
-                                                </div>
-                                                <?php
-                                            } else {
-                                                $queryUpdate = mysqli_query($koneksi, "UPDATE akun SET username = '$username', password = '$hash', email = '$email' WHERE id = '$id'");
-                                                if ($queryUpdate) {
+                                            $cekEmail = mysqli_query($koneksi, "SELECT * FROM akun WHERE email = '$email'");
+                                            if (mysqli_num_rows($cekEmail) > 0) {
                                                 ?>
-                                                    <div class="alert alert-primary mt-3" role="alert">
-                                                        Data Akun Berhasil Diupdate
-                                                    </div>
-
-                                                    <meta http-equiv="refresh" content="2, url=akun.php" />
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            Email Sudah Terdaftar
+                                        </div>
                                         <?php
+                                            } else {
+                                                if ($email == '' || $username == '' || $password == '') {
+                                                    ?>
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            Email, Username dan Password Wajib Diisi
+                                        </div>
+                                        <?php
+                                                } else {
+                                                    $queryUpdate = mysqli_query($koneksi, "UPDATE akun SET username = '$username', password = '$hash', email = '$email' WHERE id = '$id'");
+                                                    if ($queryUpdate) {
+                                                        ?>
+                                        <div class="alert alert-primary mt-3" role="alert">
+                                            Data Akun Berhasil Diupdate
+                                        </div>
+
+                                        <meta http-equiv="refresh" content="2, url=akun.php" />
+                                        <?php
+                                                    }
                                                 }
                                             }
                                         }

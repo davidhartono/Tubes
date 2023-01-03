@@ -40,28 +40,40 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
             $password = $_POST['password'];
 
             $hash = password_hash($password, PASSWORD_DEFAULT);
-            if ($email == '' || $username == '' || $password == '') {
+            $cekEmail = mysqli_query($koneksi, "SELECT * FROM akun WHERE email = '$email'");
+            if (mysqli_num_rows($cekEmail) > 0) {
         ?>
                 <script>
                     Swal.fire({
                         icon: 'warning',
-                        text: 'Email, Username dan Password Wajib Diisi.'
+                        text: 'Email Sudah Terdaftar.'
                     })
                 </script>
                 <?php
             } else {
-                $queryUpdate = mysqli_query($koneksi, "UPDATE akun SET username = '$username', password = '$hash', email = '$email' WHERE id = '$id'");
-                if ($queryUpdate) {
+                if ($email == '' || $username == '' || $password == '') {
                 ?>
                     <script>
                         Swal.fire({
-                            icon: 'success',
-                            text: 'Update Profile Berhasil'
-                        }).then(function() {
-                            window.location = "profil.php";
+                            icon: 'warning',
+                            text: 'Email, Username dan Password Wajib Diisi.'
                         })
                     </script>
+                    <?php
+                } else {
+                    $queryUpdate = mysqli_query($koneksi, "UPDATE akun SET username = '$username', password = '$hash', email = '$email' WHERE id = '$id'");
+                    if ($queryUpdate) {
+                    ?>
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                text: 'Update Profile Berhasil'
+                            }).then(function() {
+                                window.location = "profil.php";
+                            })
+                        </script>
         <?php
+                    }
                 }
             }
         }
