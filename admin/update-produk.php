@@ -133,15 +133,8 @@ if (empty($_SESSION['username'])) {
                                             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
                                             $image_size = $_FILES["foto"]["size"];
                                             $new_name = $nama_file;
-                                            $querycek = mysqli_query($koneksi, "SELECT * FROM produk WHERE nama = '$nama'");
                                             
-                                            if (mysqli_num_rows($querycek) > 0) {
-                                            ?>
-                                        <div class="alert alert-warning mt-3" role="alert">
-                                            Nama Produk Sudah Terdaftar
-                                        </div>
-                                        <?php
-                                            } else if ($nama == '' || $harga == '' || $kategori == '') {
+                                          if ($nama == '' || $harga == '' || $kategori == '') {
                                         ?>
                                         <div class="alert alert-warning mt-3" role="alert">
                                             Nama, Harga dan Kategori Wajib Diisi
