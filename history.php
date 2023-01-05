@@ -22,6 +22,7 @@ if (empty($_SESSION['username'])) {
             <tr>
                 <th>Product Name</th>
                 <th class="quantity">Quantity</th>
+                <th>Harga</th>
             </tr>
 
             <tr>
@@ -39,6 +40,9 @@ if (empty($_SESSION['username'])) {
 
                     <td class="quantity">
                         <?= $data['item']; ?>
+                    </td>
+                    <td>
+                        <?= $data['harga'] * $data['item'] ?>
                     </td>
             </tr>
         <?php
