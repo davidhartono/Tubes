@@ -56,6 +56,7 @@ if (empty($_SESSION['username'])) {
                                                         <th>Username</th>
                                                         <th>Produk</th>
                                                         <th>Total Item</th>
+                                                        <th>Total Harga</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -69,6 +70,7 @@ if (empty($_SESSION['username'])) {
                                                         <td><?= $data['username'] ?></td>
                                                         <td style="text-transform: capitalize;"><?= $data['produk'] ?></td>
                                                         <td><?= $data['item'] ?></td>
+                                                        <td><?= $data['item'] * $data['harga'] ?></td>
                                                     </tr>
                                                     <?php
                                                         $jumlah++;
