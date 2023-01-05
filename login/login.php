@@ -113,6 +113,7 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
 
               $hash = password_hash($pass, PASSWORD_DEFAULT);
               $cekEmail = mysqli_query($koneksi, "SELECT * FROM akun WHERE email = '$email'");
+              $cekUsername = mysqli_query($koneksi, "SELECT * FROM akun WHERE username = '$user'");
               $sql = "INSERT INTO akun (username,password,email) VALUES ('$user','$hash','$email')";
 
               if (mysqli_num_rows($cekEmail) > 0) {
@@ -124,12 +125,21 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
                         })
                         </script>
                         <?php
+              } elseif (mysqli_num_rows($cekUsername) > 0) {
+              ?>
+                        <script>
+                        Swal.fire({
+                            icon: 'warning',
+                            text: 'Username Sudah Terdaftar.'
+                        })
+                        </script>
+                        <?php
               } else {
                 if ($koneksi->query($sql) === TRUE) {
-                    $_SESSION['id'] = $id;
-                    $_SESSION['username'] = $_POST['username'];
-                    $_SESSION['email'] = $_POST['email'];
-                    $_SESSION['password'] = $_POST['password'];
+                  $_SESSION['id'] = $id;
+                  $_SESSION['username'] = $_POST['username'];
+                  $_SESSION['email'] = $_POST['email'];
+                  $_SESSION['password'] = $_POST['password'];
                 ?>
                         <script>
                         Swal.fire({
@@ -141,7 +151,7 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
                         })
                         </script>
                         <?php
-              } else {
+                } else {
                   echo "Terjadi kesalahan : " . $sql . "<br/>" . $koneksi->error;
                 }
               }
