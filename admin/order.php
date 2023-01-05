@@ -57,6 +57,7 @@ if (empty($_SESSION['username'])) {
                                                         <th>Produk</th>
                                                         <th>Total Item</th>
                                                         <th>Total Harga</th>
+                                                        <th>Status</th>
                                                         <th class="text-center">Action</th>
                                                     </tr>
                                                 </thead>
@@ -72,15 +73,50 @@ if (empty($_SESSION['username'])) {
                                                         <td style="text-transform: capitalize;"><?= $data['produk'] ?></td>
                                                         <td><?= $data['item'] ?></td>
                                                         <td><?= number_format($data['harga'] * $data['item']) ?></td>
+                                                        <td style="text-transform: capitalize;"><?= $data['status'] ?></td>
                                                         <td class="text-center">
-                                                            <a href="selesai-order.php?selesai=<?= $data['no']; ?>" class="btn btn-success"><i class="fa-solid fa-check-square"></i></a> |
+                                                            <a href="order.php?stats=<?= $data['no']; ?>" class="btn btn-success"><i class="fa-solid fa-angle-up"></i></a> |
                                                             <a href="delete-order.php?no=<?= $data['no']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus')"><i class="fa-solid fa-trash"></i></a>
                                                         </td>
                                                     </tr>
                                                     <?php
                                                         $jumlah++;
                                                     }
+                                                    if (isset($_GET['stats'])) {
+                                                        $no = $_GET['stats'];
 
+                                                        $queryStatus = mysqli_query($koneksi, "SELECT * FROM orderan WHERE no = '$no'");
+                                                        $dataStatus = mysqli_fetch_assoc($queryStatus);
+
+                                                        if ($dataStatus['status'] == 'menunggu konfirmasi') {
+                                                            $prosesa = mysqli_query($koneksi, "UPDATE orderan SET status = 'sedang diproses' WHERE no = '$no'");
+                                                        ?>
+                                                    <script>
+                                                    window.location = "order.php"
+                                                    </script>
+                                                    <?php
+                                                        } elseif ($dataStatus['status'] == 'sedang diproses') {
+                                                            $prosesb = mysqli_query($koneksi, "UPDATE orderan SET status = 'selesai' WHERE no = '$no'");
+                                                            $query = mysqli_query($koneksi, "SELECT * FROM orderan WHERE no = '$no'");
+                                                            while ($data = mysqli_fetch_assoc($query)) {
+                                                                $username = $data['username'];
+                                                                $produk = $data['produk'];
+                                                                $item = $data['item'];
+                                                                $harga = $data['harga'];
+
+                                                                mysqli_query($koneksi, "INSERT INTO orderselesai (username,produk,item,harga) VALUES ('$username','$produk','$item','$harga');");
+                                                                $queryHapus = mysqli_query($koneksi, "DELETE FROM orderan WHERE no = '$no'");
+                                                                ?>
+                                                    <script>
+                                                    window.location = "order.php"
+                                                    </script>
+                                                    <?php
+                                                            }
+                                                        }
+                                                        else {
+                                                            echo mysqli_error($koneksi);
+                                                        }
+                                                    }
                                                     ?>
                                                 </tbody>
                                             </table>
@@ -92,7 +128,6 @@ if (empty($_SESSION['username'])) {
                     </div>
                 </section>
             </div>
-
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
