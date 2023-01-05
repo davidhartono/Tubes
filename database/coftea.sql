@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2023 at 04:15 PM
+-- Generation Time: Jan 05, 2023 at 05:13 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -74,16 +74,16 @@ CREATE TABLE `orderan` (
   `username` varchar(256) NOT NULL,
   `produk` varchar(256) NOT NULL,
   `item` int(11) NOT NULL,
-  `harga` int(11) NOT NULL
+  `harga` int(11) NOT NULL,
+  `status` enum('menunggu konfirmasi','sedang diproses','selesai') NOT NULL DEFAULT 'menunggu konfirmasi'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orderan`
 --
 
-INSERT INTO `orderan` (`no`, `username`, `produk`, `item`, `harga`) VALUES
-(4, 'saiduser', 'iced chamomile blend tea', 2, 25000),
-(5, 'saiduser', 'iced jeju organic green tea', 1, 25000);
+INSERT INTO `orderan` (`no`, `username`, `produk`, `item`, `harga`, `status`) VALUES
+(19, 'admin', 'caffe mocha', 1, 27000, 'sedang diproses');
 
 -- --------------------------------------------------------
 
@@ -95,18 +95,20 @@ CREATE TABLE `orderselesai` (
   `no` int(11) NOT NULL,
   `username` varchar(256) NOT NULL,
   `produk` varchar(256) NOT NULL,
-  `item` int(11) NOT NULL
+  `item` int(11) NOT NULL,
+  `harga` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orderselesai`
 --
 
-INSERT INTO `orderselesai` (`no`, `username`, `produk`, `item`) VALUES
-(4, 'david', 'iced honey earl grey milk tea', 1),
-(5, 'david', 'Shakerato Bianco', 1),
-(6, 'david', 'cold brew with milk', 1),
-(7, 'david', 'jeju forest cold brew', 1);
+INSERT INTO `orderselesai` (`no`, `username`, `produk`, `item`, `harga`) VALUES
+(8, 'david', 'iced honey earl grey milk tea', 2, 25000),
+(9, 'admin', 'hibiscus tea', 1, 20000),
+(10, 'admin', 'caramel macchiato', 3, 30000),
+(11, 'admin', 'caffee latte', 2, 20000),
+(12, 'admin', 'caramel macchiato', 4, 30000);
 
 -- --------------------------------------------------------
 
@@ -236,25 +238,25 @@ ALTER TABLE `akun`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT for table `orderan`
 --
 ALTER TABLE `orderan`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `orderselesai`
 --
 ALTER TABLE `orderselesai`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
