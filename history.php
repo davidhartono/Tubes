@@ -14,43 +14,58 @@ if (empty($_SESSION['username'])) {
         <?php
         $username = $_SESSION['username'];
 
-        $query = mysqli_query($koneksi, "SELECT * FROM orderselesai WHERE username = '$username'");
+        $query = mysqli_query($koneksi, "SELECT * FROM orderan WHERE username = '$username'");
         if (mysqli_num_rows($query) > 0) {
         ?>
-            <h3 class="harga">Purchase History</h3>
-            <table class="table">
+        <h3 class="harga">Purchase History</h3>
+        <table class="table">
             <tr>
+                <th>Date</th>
+                <th>Order ID</th>
                 <th>Product Name</th>
                 <th class="quantity">Quantity</th>
-                <th>Harga</th>
+                <th>Price</th>
+                <th>Status</th>
             </tr>
 
             <tr>
                 <?php
                 while ($data = mysqli_fetch_assoc($query)) {
 
-                ?>
-                    <td>
-                        <div class="cart-info">
-                            <div>
-                                <h5 style="text-transform: capitalize;"><?= $data['produk']; ?></h5>
-                            </div>
+                ?> <td>
+                    <?= $data['tanggal'] ?>
+                </td>
+                <td>
+                    <?= $data['orderid'] ?>
+                </td>
+                <td>
+                    <div class="cart-info">
+                        <div>
+                            <h5 style="text-transform: capitalize;"><?= $data['produk']; ?></h5>
                         </div>
-                    </td>
+                    </div>
+                </td>
 
-                    <td class="quantity">
-                        <?= $data['item']; ?>
-                    </td>
-                    <td>
-                        <?= $data['harga'] * $data['item'] ?>
-                    </td>
+                <td class="quantity">
+                    <?= $data['item']; ?>
+                </td>
+                <td>
+                    <?= $data['harga'] * $data['item'] ?>
+                </td>
+                <td>
+                    <div class="status">
+
+                        <h5 style=""><?= $data['status']; ?></h5>
+
+                    </div>
+                </td>
             </tr>
-        <?php
+            <?php
                 }
         ?>
         </table>
     </div>
-<?php
+    <?php
         } else {
 ?>
     <div class="contenta">
@@ -58,7 +73,7 @@ if (empty($_SESSION['username'])) {
         <p>Let's find your favourite coffee and tea!</p>
         <a href="menu.php" class="menu-btn">Menu</a>
     </div>
-<?php
+    <?php
         }
 ?>
 </section>
