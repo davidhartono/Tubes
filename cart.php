@@ -64,12 +64,8 @@ if (empty($_SESSION['username'])) {
                 </td>
             </tr>
             <?php
-                    $grand_total += $sub_total;
-
-
-                    
+                    $grand_total += $sub_total;              
                 };
-
                 ?>
         </table>
         <div class="total-price">
@@ -114,36 +110,30 @@ if (empty($_SESSION['username'])) {
             $a = mysqli_num_rows($query);
 
             while ($a > 0) {
+                $orderid = rand(1, 213213212);
                 while ($data = mysqli_fetch_assoc($query)) {
                     $user = $_SESSION['username'];
                     $produk = $data['nama'];
                     $item = $data['jumlah'];
                     $harga = $data['harga'];
-                    
-                    $order = "INSERT INTO orderan (username,produk,item,harga) VALUES ('$user','$produk','$item','$harga')";
-
-                    mysqli_query($koneksi, $order);
-
-                }
-                $a = $a - 1;
-            }
-
-
-            ?>
+                    $order = "INSERT INTO orderan (username,produk,item,harga,orderid) VALUES ('$user','$produk','$item','$harga','$orderid')";
+                    ?>
 
         <script>
         Swal.fire({
             icon: 'success',
-            text: 'Your order has been placed.'
+            text: 'Please proceed to payment.'
         }).then(function() {
-            window.location = "invoice.php?checkout";
+            window.location = "payment.php?checkout=<?=$orderid?>";
         })
         </script>
-
-        ?>
         <?php
+                    mysqli_query($koneksi, $order);
+                }
+                $a = $a - 1;
+            }
+            
         };
-        
         
         ?>
         <?php
