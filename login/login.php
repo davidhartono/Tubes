@@ -136,6 +136,7 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
                         <?php
               } else {
                 if ($koneksi->query($sql) === TRUE) {
+                  $id = mysqli_insert_id($koneksi);
                   $_SESSION['id'] = $id;
                   $_SESSION['username'] = $_POST['username'];
                   $_SESSION['email'] = $_POST['email'];
