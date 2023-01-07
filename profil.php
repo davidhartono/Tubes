@@ -5,7 +5,7 @@ include 'header.php';
 $id = $_SESSION['id'];
 $query = mysqli_query($koneksi, "SELECT * FROM akun WHERE id = '$id'");
 $data = mysqli_fetch_array($query);
-
+var_dump($_SESSION);
 echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
 ?>
 
@@ -38,15 +38,24 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
             $email = $_POST['email'];
             $username = $_POST['username'];
             $password = $_POST['password'];
-
-            $hash = password_hash($password, PASSWORD_DEFAULT);
             $cekEmail = mysqli_query($koneksi, "SELECT * FROM akun WHERE email = '$email'");
-            if (mysqli_num_rows($cekEmail) > 0) {
+            $cekUsername = mysqli_query($koneksi, "SELECT * FROM akun WHERE username = '$username'");
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            if (mysqli_num_rows($cekEmail) > 0 && $_SESSION['email'] != $email) {
         ?>
         <script>
         Swal.fire({
             icon: 'warning',
             text: 'Email Sudah Terdaftar.'
+        })
+        </script>
+        <?php
+            } elseif (mysqli_num_rows($cekUsername) > 0 && $_SESSION['username'] != $username) {
+            ?>
+        <script>
+        Swal.fire({
+            icon: 'warning',
+            text: 'Username Sudah Terdaftar.'
         })
         </script>
         <?php
@@ -77,6 +86,7 @@ echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
                 }
             }
         }
+
         ?>
     </div>
 
