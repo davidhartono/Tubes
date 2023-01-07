@@ -1,7 +1,7 @@
 <?php
 
 include('../includes/koneksi.php');
-$query = mysqli_query($koneksi, "SELECT * FROM orderselesai");
+$query = mysqli_query($koneksi, "SELECT * FROM orderan WHERE status = 'done'");
 
 if (empty($_SESSION['username'])) {
     header("Location: error.php");
