@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2023 at 05:13 PM
+-- Generation Time: Jan 07, 2023 at 09:01 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -40,13 +40,33 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id`, `email`, `username`, `password`, `role`) VALUES
-(9, 'admin@gmail.com', 'admin', '$2y$10$F37GcpklfknUj8uJwsN7je0uAxIIDCIFB9UmXeH7kB5TRDbfpSki.', 1),
-(10, 'davidhartono04@gmail.com', 'david', '$2y$10$4aoJCLxhxBGvOa.cC7mkEO/oaPVGmoCuMl7rZJVGOL2abU8hsHgjm', 2),
-(13, 'saidmuhammad572@gmail.com', 'said', '$2y$10$l47zMbE/1yrKDvTVJ/QFb.7M10fvdn.CzNRpy1..Uqmh1tmb8XXxS', 1),
-(14, 'felixmatthewjonathan@gmail.com', 'FmJ', '$2y$10$4I9sB0eNXiACUUxoiygrjukU0Q8knubGIVfPxKVnA7JuWclJDErXa', 2),
-(17, 'jessindy.goce@gmail.com', 'jess', '$2y$10$BEYG9J4H4q0Pm6tkJsANHOLfxmMXxlY0fAv4ibVcR39ci1S91FAxC', 2),
-(27, 'said@gmail.com', 'saidsaid', '$2y$10$r8Rh6j7EjeSNla136ROD9e8A7VOoTIY0CBROdGaI3wiJGDVem7jvC', 2),
+(9, 'admin@gmail.com', 'admin', '$2y$10$BnUorU1ba0/VQlp9i35wE.B4svOKGFl7whT4U2Qokqrs/NEbb.koy', 1),
+(10, 'davidhartono04@gmail.com', 'david', '$2y$10$SGaFroou0Uti5gJglR/J4.nfPcZ5J6BOjm6v5SgimNWBIFcjX9XA.', 2),
+(13, 'saidmuhammad572@gmail.com', 'said', '$2y$10$THMAbPJGt8YtYOfazgFkF.lgFtZjcmKDmGwzsCYU9es.r1LvE7Hp.', 1),
 (28, 'saidmazaya654@gmail.com', 'saiduser', '$2y$10$RpRPy3uQSc.a3g0Y6Qdoq.9WptH4PDAc0fRjzF0Tj7ueHVr8.0wqO', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bukti`
+--
+
+CREATE TABLE `bukti` (
+  `id` int(11) NOT NULL,
+  `orderid` int(11) NOT NULL,
+  `username` varchar(256) NOT NULL,
+  `metode` enum('ovo','gopay','dana') NOT NULL,
+  `foto` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bukti`
+--
+
+INSERT INTO `bukti` (`id`, `orderid`, `username`, `metode`, `foto`) VALUES
+(23, 202560402, 'saiduser', 'gopay', '202560402_65863723_blooming fruit youthberry tea.jpg'),
+(24, 84546693, 'david', 'gopay', '84546693_119981893_iced  black tea.png'),
+(25, 126510342, 'david', 'ovo', '126510342_84376606_buktipembayaran.jpg');
 
 -- --------------------------------------------------------
 
@@ -71,44 +91,28 @@ CREATE TABLE `cart` (
 
 CREATE TABLE `orderan` (
   `no` int(11) NOT NULL,
+  `orderid` int(11) NOT NULL,
   `username` varchar(256) NOT NULL,
   `produk` varchar(256) NOT NULL,
   `item` int(11) NOT NULL,
   `harga` int(11) NOT NULL,
-  `status` enum('menunggu konfirmasi','sedang diproses','selesai') NOT NULL DEFAULT 'menunggu konfirmasi'
+  `tanggal` date NOT NULL DEFAULT current_timestamp(),
+  `status` enum('pending','ongoing','done','cancelled') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orderan`
 --
 
-INSERT INTO `orderan` (`no`, `username`, `produk`, `item`, `harga`, `status`) VALUES
-(19, 'admin', 'caffe mocha', 1, 27000, 'sedang diproses');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `orderselesai`
---
-
-CREATE TABLE `orderselesai` (
-  `no` int(11) NOT NULL,
-  `username` varchar(256) NOT NULL,
-  `produk` varchar(256) NOT NULL,
-  `item` int(11) NOT NULL,
-  `harga` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `orderselesai`
---
-
-INSERT INTO `orderselesai` (`no`, `username`, `produk`, `item`, `harga`) VALUES
-(8, 'david', 'iced honey earl grey milk tea', 2, 25000),
-(9, 'admin', 'hibiscus tea', 1, 20000),
-(10, 'admin', 'caramel macchiato', 3, 30000),
-(11, 'admin', 'caffee latte', 2, 20000),
-(12, 'admin', 'caramel macchiato', 4, 30000);
+INSERT INTO `orderan` (`no`, `orderid`, `username`, `produk`, `item`, `harga`, `tanggal`, `status`) VALUES
+(92, 202560402, 'saiduser', 'iced jeju organic green tea', 4, 25000, '2023-01-07', 'done'),
+(93, 202560402, 'saiduser', 'iced honey earl grey milk tea', 2, 25000, '2023-01-07', 'cancelled'),
+(96, 84546693, 'david', 'americano', 3, 20000, '2023-01-07', 'done'),
+(97, 84546693, 'david', 'caramel macchiato', 1, 30000, '2023-01-07', 'pending'),
+(98, 126510342, 'david', 'iced honey earl grey milk tea', 2, 25000, '2023-01-07', 'pending'),
+(99, 126510342, 'david', 'Iced Americano', 1, 20000, '2023-01-07', 'ongoing'),
+(100, 126510342, 'david', 'caramel macchiato', 3, 30000, '2023-01-07', 'done'),
+(101, 126510342, 'david', 'english breakfast tea', 1, 15000, '2023-01-07', 'cancelled');
 
 -- --------------------------------------------------------
 
@@ -201,6 +205,12 @@ ALTER TABLE `akun`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `bukti`
+--
+ALTER TABLE `bukti`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
@@ -210,12 +220,6 @@ ALTER TABLE `cart`
 -- Indexes for table `orderan`
 --
 ALTER TABLE `orderan`
-  ADD PRIMARY KEY (`no`);
-
---
--- Indexes for table `orderselesai`
---
-ALTER TABLE `orderselesai`
   ADD PRIMARY KEY (`no`);
 
 --
@@ -232,31 +236,31 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT for table `bukti`
+--
+ALTER TABLE `bukti`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 
 --
 -- AUTO_INCREMENT for table `orderan`
 --
 ALTER TABLE `orderan`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `orderselesai`
---
-ALTER TABLE `orderselesai`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
