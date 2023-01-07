@@ -52,11 +52,13 @@ if (empty($_SESSION['username'])) {
                                             <table class="table table-striped" id="tabelorder">
                                                 <thead class="table-dark">
                                                     <tr>
-                                                        <th>No Order</th>
+                                                        <th>No</th>
+                                                        <th>Tanggal</th>
+                                                        <th>Order ID</th>
                                                         <th>Username</th>
                                                         <th>Produk</th>
-                                                        <th>Total Item</th>
-                                                        <th>Total Harga</th>
+                                                        <th>Item</th>
+                                                        <th>Harga</th>
                                                         <th>Status</th>
                                                         <th class="text-center">Action</th>
                                                     </tr>
@@ -66,17 +68,28 @@ if (empty($_SESSION['username'])) {
                                                     $jumlah = 1;
                                                     while ($data = mysqli_fetch_array($query)) {
 
-                                                    ?>
+                                                        ?>
                                                     <tr>
                                                         <td><?= $jumlah ?></td>
-                                                        <td><?= $data['username'] ?></td>
-                                                        <td style="text-transform: capitalize;"><?= $data['produk'] ?></td>
+                                                        <td><?= $data['tanggal'] ?></td>
+                                                        <td><?= $data['orderid'] ?></td>
+                                                        <td>
+                                                            <?= $data['username'] ?>
+                                                        </td>
+                                                        <td style="text-transform: capitalize;">
+                                                            <?= $data['produk'] ?>
+                                                        </td>
                                                         <td><?= $data['item'] ?></td>
-                                                        <td><?= number_format($data['harga'] * $data['item']) ?></td>
-                                                        <td style="text-transform: capitalize;"><?= $data['status'] ?></td>
+                                                        <td>
+                                                            <?= number_format($data['harga'] * $data['item']) ?>
+                                                        </td>
+                                                        <td style="text-transform: capitalize;">
+                                                            <?= $data['status'] ?>
+                                                        </td>
                                                         <td class="text-center">
+                                                            <a href="order-detail.php?orderid=<?= $data['orderid']; ?>" class="btn btn-info"><i class="fas fa-search"></i></a> |
                                                             <a href="order.php?stats=<?= $data['no']; ?>" class="btn btn-success"><i class="fa-solid fa-angle-up"></i></a> |
-                                                            <a href="delete-order.php?no=<?= $data['no']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus')"><i class="fa-solid fa-trash"></i></a>
+                                                            <a href="order.php?tolak=<?= $data['no']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin menghapus')"><i class="fa-solid fa-trash"></i></a>
                                                         </td>
                                                     </tr>
                                                     <?php
@@ -88,33 +101,39 @@ if (empty($_SESSION['username'])) {
                                                         $queryStatus = mysqli_query($koneksi, "SELECT * FROM orderan WHERE no = '$no'");
                                                         $dataStatus = mysqli_fetch_assoc($queryStatus);
 
-                                                        if ($dataStatus['status'] == 'menunggu konfirmasi') {
-                                                            $prosesa = mysqli_query($koneksi, "UPDATE orderan SET status = 'sedang diproses' WHERE no = '$no'");
-                                                        ?>
+                                                        if ($dataStatus['status'] == 'pending') {
+                                                            $prosesa = mysqli_query($koneksi, "UPDATE orderan SET status = 'ongoing' WHERE no = '$no'");
+                                                            ?>
                                                     <script>
                                                     window.location = "order.php"
                                                     </script>
                                                     <?php
-                                                        } elseif ($dataStatus['status'] == 'sedang diproses') {
-                                                            $prosesb = mysqli_query($koneksi, "UPDATE orderan SET status = 'selesai' WHERE no = '$no'");
-                                                            $query = mysqli_query($koneksi, "SELECT * FROM orderan WHERE no = '$no'");
-                                                            while ($data = mysqli_fetch_assoc($query)) {
-                                                                $username = $data['username'];
-                                                                $produk = $data['produk'];
-                                                                $item = $data['item'];
-                                                                $harga = $data['harga'];
+                                                        } elseif ($dataStatus['status'] == 'ongoing') {
+                                                            $prosesb = mysqli_query($koneksi, "UPDATE orderan SET status = 'done' WHERE no = '$no'");
 
-                                                                mysqli_query($koneksi, "INSERT INTO orderselesai (username,produk,item,harga) VALUES ('$username','$produk','$item','$harga');");
-                                                                $queryHapus = mysqli_query($koneksi, "DELETE FROM orderan WHERE no = '$no'");
-                                                                ?>
+                                                            ?>
                                                     <script>
                                                     window.location = "order.php"
                                                     </script>
                                                     <?php
-                                                            }
-                                                        }
-                                                        else {
+                                                        } else {
                                                             echo mysqli_error($koneksi);
+                                                        }
+                                                    }
+                                                    if (isset($_GET['tolak'])) {
+                                                        $no = $_GET['tolak'];
+
+                                                        $queryStatus = mysqli_query($koneksi, "SELECT * FROM orderan WHERE no = '$no'");
+
+                                                        $dataStatus = mysqli_fetch_assoc($queryStatus);
+
+                                                        if ($dataStatus['status'] == 'pending') {
+                                                            $prosesc = mysqli_query($koneksi, "UPDATE orderan SET status = 'cancelled' WHERE no = '$no'");
+                                                            ?>
+                                                    <script>
+                                                    window.location = "order.php"
+                                                    </script>
+                                                    <?php
                                                         }
                                                     }
                                                     ?>
