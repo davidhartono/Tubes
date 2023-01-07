@@ -1,0 +1,76 @@
+.profil {
+    min-height: 100vh;
+    display: grid;
+}
+
+.profil .title {
+    margin-top: 11rem;
+    font-size: 2.5rem;
+    color: #483434;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+.profil .row {
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 10%;
+}
+
+.profil .row form .inputBox {
+    align-items: center;
+    margin-bottom: 5rem;
+    background: #FFF3E4;
+    border: #483434;
+    border-radius: 8px;
+}
+
+.profil .row form .buttons {
+    align-items: center;
+    margin-top: 7%;
+}
+
+.profil .row form .inputBox span {
+    color: #483434;
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+
+.profil .row form .inputBox option, select {
+    width: 22%;
+    padding: 2rem;
+    font-size: 1.7rem;
+    color: #483434;
+    background: none;
+}
+
+.profil .row form .inputBox input, label {
+    width: 70%;
+    padding: 2rem;
+    font-size: 1.7rem;
+    color: #483434;
+    background: none;
+}
+
+.profil .row form .cancel-btn {
+    padding: 1.5rem 3rem;
+    background-color: red;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-left: 66%;
+}
+
+.profil .row form .save-btn {
+    padding: 1.5rem 3rem;
+    background-color: #198754;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-left: 3%;
+}
