@@ -20,13 +20,18 @@ echo "<link rel='stylesheet' href='css/invoice.css'>";
 
         <?php
 
-        $query = mysqli_query($koneksi, "SELECT * FROM cart ");
+        $query = mysqli_query($koneksi, "SELECT * FROM cart");
+        $orderid = $_GET['checkout'];
+        $queryOrder = mysqli_query($koneksi, "SELECT * FROM orderan WHERE orderid = $orderid");
+        $dataorder = mysqli_fetch_assoc($queryOrder);
         $grand_total = 0;
         if (mysqli_num_rows($query) > 0) {
         ?>
 
         <h3 class="harga">Your order has been received.</h3>
         <h4>Thank you for your purchase!</h4>
+        <p style="margin-bottom : 2px;">Your Order ID: <b><?= $dataorder['orderid'] ?></b></p>
+        <p  style="margin-bottom : 2em;">Order time: <b><?= $dataorder['tanggal'] ?></b></p>
         <p>Please check your email address.</p>
 
         <h4>Items ordered</h4>
@@ -46,12 +51,12 @@ echo "<link rel='stylesheet' href='css/invoice.css'>";
                     $mail->isSMTP();
                     $mail->Host = 'smtp.gmail.com';
                     $mail->SMTPAuth = true;
-                    $mail->Username = 'hardtoknow2004@gmail.com';
-                    $mail->Password = 'ucfgennknvxeqyui';
+                    $mail->Username = 'noreplycoftea@gmail.com';
+                    $mail->Password = 'xpvumsfbshlamriq';
                     $mail->SMTPSecure = 'ssl';
                     $mail->Port = 465;
                 
-                    $mail->setFrom('hardtoknow2004@gmail.com');
+                    $mail->setFrom('noreplycoftea@gmail.com');
                 
                     $mail->addAddress($_SESSION['email']);
                 
@@ -60,7 +65,7 @@ echo "<link rel='stylesheet' href='css/invoice.css'>";
                     $mail->Subject = 'Coftea Purchase Invoice';
 
                     $cart = array();
-                    $body = 'Thank you for your purchase!<br>Items ordered:<br><br>';
+                    $body = 'Thank you for your purchase!<br>Order ID: '. $dataorder['orderid'] . '<br>Order time: '. $dataorder['tanggal'] .'<br>Items ordered:<br><br>';
                     $body .= '<table border="1"><tr><th>Product</th><th>Quantity</th><th>Price</th><th>Subtotal</th></tr>';
 
                 while ($data = mysqli_fetch_assoc($query)) {
@@ -112,7 +117,6 @@ echo "<link rel='stylesheet' href='css/invoice.css'>";
                 ?>
             <?php
                 $grand_total += $sub_total;
-                        
                 
                 }
                 $body .= '<tr><td colspan="3">';  
