@@ -13,7 +13,7 @@
         <p class="half">Faculty of Computer Science and Information Technology USU</p>
         <p class="half2"><i class="fab fa-whatsapp"></i> +62 812 3456 789</p>
         <p class="half">University of Sumatera Utara</p>
-        <p class="half2"><i class="fa fa-envelope"></i> coftea@gmail.com</p>
+        <p class="half2"><i class="fa fa-envelope"></i> cofteabusiness@gmail.com</p>
         <p class="half">Medan, Indonesia</p>
     </div>
 
