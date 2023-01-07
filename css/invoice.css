@@ -95,6 +95,11 @@ td .total {
     font-weight: 500;
 }
 
+td .status h5 {
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
 .cart .content .table .cart-info {
     display: flex;
     flex-wrap: wrap;
