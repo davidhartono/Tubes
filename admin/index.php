@@ -13,10 +13,10 @@ $jumlahAdmin = mysqli_num_rows($queryAdmin);
 $queryUser = mysqli_query($koneksi, "SELECT * FROM akun WHERE role != 1");
 $jumlahUser = mysqli_num_rows($queryUser);
 
-$queryOrder = mysqli_query($koneksi, "SELECT * FROM orderan");
+$queryOrder = mysqli_query($koneksi, "SELECT * FROM orderan WHERE status = 'pending'");
 $jumlahOrder = mysqli_num_rows($queryOrder);
 
-$queryOrderSelesai = mysqli_query($koneksi, "SELECT * FROM orderselesai");
+$queryOrderSelesai = mysqli_query($koneksi, "SELECT * FROM orderan WHERE status = 'done'");
 $jumlahOrderSelesai = mysqli_num_rows($queryOrderSelesai);
 ?>
 
