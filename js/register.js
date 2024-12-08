@@ -6,3 +6,5 @@ switchers.forEach(item => {
     this.parentElement.classList.add('is-active')
   })
 })
+
+console.log("Halo")
